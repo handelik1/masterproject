@@ -169,11 +169,19 @@ section.global-nav form {
     cursor: pointer;
 }
 
+.project-form-results{
+    margin-bottom: 0px;
+}
+
 /*******Results*******/
 
 .result-title{
     font-size: 1.5em;
     text-decoration: none;
+    background-color: white;
+    border: none;
+    color:blue;
+    padding: 0;
 }
 
 .result-title:hover{
@@ -211,4 +219,36 @@ section.global-nav form {
 
 .hidden{
     display: none;
+}
+
+
+/*********Citations******/
+
+.modal-container{
+    margin-top: 10%;
+}
+
+
+/*********Project********/
+
+.abstract-header{
+    font-style: bold;
+}
+
+.abstract-wrapper{
+    height: 65%;
+    overflow-y: auto;
+}
+
+.abstract{
+    font-size: 1.3em;
+    overflow-y: auto;
+}
+
+.author-name{
+    font-size: 1.5em;
+}
+
+.project-label{
+    font-size: 1.3em !important;
 }

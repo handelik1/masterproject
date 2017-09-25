@@ -1,15 +1,20 @@
 <?php
 
+session_start();
 require('connect.php');
 
 $out = '';
 
 require('header.html');
 
+require_once('citations.php');
+
 $out .='<body>';
 $out .= '<div class="container">';
 
 require('nav.php');
+
+
 
 		//Search bar section
 $out .=	'<div class="row">
@@ -46,34 +51,103 @@ $out .=	'<div class="row">';
 				if($count > 0){
 						$c = 0;
 						foreach ($publicationQuery as $key => $value) {
-
+								$_SESSION['value'] = $value;
 								$out .=		'<div class="col-md-10">';	
 								if($value['middle_initial'] != NULL){
-
 								$out .= 		'<div class = "result" id = "result'.$c.'">
-													<a class = "result-title" id = "result-title'.$c.'">'.$value['title'] .' '.'</a>'. '<span class = "person-name">By: '. $value['firstname'] . ' ' . $value['middle_initial'] . '. ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
-
-													<br>
-													<p class = "result-abs" id = "result-abs'.$c.'">'.$value['abstract'].'</p><br>
-												</div>';
+													<form id = "project-form" class = "project-form-results" action="project.php" method="post">
+													<input type = "hidden"  name = "key" value = "'.$key.'">
+													<input type = "hidden"  name = "value" value = "'.htmlspecialchars(json_encode($value)).'">
+													<input type = "hidden"  name = "id" value = "'.$value['id'].'">
+													<input type = "hidden"  name = "title" value = "'.$value['title'].'">
+													<input type = "hidden"  name = "firstname" value = "'.$value['firstname'].'">
+													<input type = "hidden"  name = "middle_initial" value = "'.$value['middle_initial'].'">
+													<input type = "hidden"  name = "lastname" value = "'.$value['lastname'].'">
+													<input type = "hidden"  name = "supervisor" value = "'.$value['supervisor'].'">
+													<input type = "hidden"  name = "department" value = "'.$value['department'].'">
+													<input type = "hidden"  name = "type" value = "'.$value['type'].'">
+													<input type = "hidden"  name = "semester" value = "'.$value['semester'].'">
+													<input type = "hidden"  name = "year" value = "'.$value['year'].'">
+													<input type = "hidden"  name = "data" value = "'.$value['data'].'">
+													<input type = "hidden"  name = "abstract" value = "'.$value['abstract'].'">
+														<input type = "submit" class = "result-title" value = "'.$value['title'].'" id = "result-title'.$c.'"> </input>'. '<span class = "person-name">By: '. $value['firstname'] . ' ' . $value['middle_initial'] . '. ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
+													</form>';
+													if (strlen($value['abstract']) > 100){
+   														$abstract = substr($value['abstract'], 0, 300) . '...';
+													
+								$out .=					'<p class = "result-abs" id = "result-abs'.$c.'">'.$abstract.'</p><br>';
+													}
+													else{
+								$out .=					'<p class = "result-abs" id = "result-abs'.$c.'">'.$value['abstract'].'</p><br>';
+													}
+								$out .=					'</div>';
 								}
 								else{		
 								$out .= 		'<div class = "result" id = "result'.$c.'">
-													<a class = "result-title" id = "result-title'.$c.'">'.$value['title'] .' '.'</a>'. '<span class = "person-name">By: '. $value['firstname'] . ' ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
+													<form id = "project-form" class = "project-form-results" action="project.php" method="post">
+													<input type = "hidden"  name = "key" value = "'.$key.'">
+													<input type = "hidden"  name = "value" value = "'.htmlspecialchars(json_encode($value)).'">
+													<input type = "hidden"  name = "id" value = "'.$value['id'].'">
+													<input type = "hidden"  name = "title" value = "'.$value['title'].'">
+													<input type = "hidden"  name = "firstname" value = "'.$value['firstname'].'">
+													<input type = "hidden"  name = "lastname" value = "'.$value['lastname'].'">
+													<input type = "hidden"  name = "supervisor" value = "'.$value['supervisor'].'">
+													<input type = "hidden"  name = "department" value = "'.$value['department'].'">
+													<input type = "hidden"  name = "type" value = "'.$value['type'].'">
+													<input type = "hidden"  name = "semester" value = "'.$value['semester'].'">
+													<input type = "hidden"  name = "year" value = "'.$value['year'].'">
+													<input type = "hidden"  name = "data" value = "'.$value['data'].'">
+													<input type = "hidden"  name = "abstract" value = "'.$value['abstract'].'">
+													<input type = "submit" class = "result-title" value = "'.$value['title'].'" id = "result-title'.$c.'"></input>'. '<span class = "person-name"> By: '. $value['firstname'] . ' ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
 
-													<br>
-													<p class = "result-abs" id = "result-abs'.$c.'">'.$value['abstract'].'</p><br>
-												</div>';
+													</form>';
+													if (strlen($value['abstract']) > 100){
+   														$abstract = substr($value['abstract'], 0, 300) . '...';
+													
+								$out .=					'<p class = "result-abs" id = "result-abs'.$c.'">'.$abstract.'</p><br>';
+													}
+													else{
+								$out .=					'<p class = "result-abs" id = "result-abs'.$c.'">'.$value['abstract'].'</p><br>';
+													}
+								$out .=					'</div>';
 								}
-								$out .=			'<div class = "citation hidden" id = "citation'.$c.'" value = "'.$c.'">';
+
+
+								$out .= '<div class="container">
+										  <!-- Trigger the modal with a button -->
+
+										  <!-- Modal -->
+										  <div class="modal fade modal-container" id="citationModal'.$c.'" role="dialog">
+										    <div class="modal-dialog">
+										    
+										      <!-- Modal content-->
+										      <div class="modal-content">
+										        <div class="modal-header">
+										          <button type="button" class="close" data-dismiss="modal">&times;</button>
+										          <h4 class="modal-title">Citations</h4>
+										        </div>
+										        <div class="modal-body">';									          
+								$out .=			'<div class = "citation" id = "citation'.$c.'" value = "'.$c.'">';
 								$out .=				mla($key, $value);
 								$out .=				ieee($key, $value);
+								$out .=				acm($key, $value);
+								$out .=				apa($key, $value);
 								$out .=			'</div>';
+								$out .=		    '</div>
+										        <div class="modal-footer">
+									 	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										        </div>
+										      </div>
+										      
+										    </div>
+										  </div>
+										  
+										</div>';
 								$out .=		'</div>';
-
+											//End col-md-10
 								$out .=		'<div class="col-md-2">';
 												'<input type = "hidden" value = "'.$value['id'].'">';
-								$out .=			'<div class = "cite-me" id = "cite-me'.$c.'" value = "'.$c.'">Cite Me</div>';
+								$out .=			'<div class = "cite-me" id = "cite-me'.$c.'" value = "'.$c.'" data-toggle="modal" data-target="#citationModal'.$c.'">Cite Me</div>';
 								$out .=		'</div>';
 								$c++;
 						}
@@ -97,61 +171,5 @@ require('footer.html');
 
 echo $out;
 
-function mla($key, $value){
-	$mlaName = mlaName($value['firstname'], $value['lastname'], $value['middle_initial']);
-	$out = '';
-	$out .= '<p class = "citation-style"><strong>MLA: </strong>'. $mlaName . '<i>' . $value['title'] . '</i>. ' . $value['type'] . '. ' . $value['school'] . '. ' . 'Web. ' . date("j M.  Y.") .'</p>';
 
-	return $out;
-}
-
-function mlaName($first, $last, $middle){
-	$mlaName = '';
-	if($middle != NULL){
-		$mlaName = $last . ', ' . $first . ' ' . $middle . '. ' ;
-	}
-	else{
-		$mlaName = $last . ', ' . $first . '. ';
-	}
-	return $mlaName;
-}
-
-function ieee($key, $value){
-	require('connect.php');
-	$school = $value['school'];
-	$universityQuery = mysqli_query($con, "select * from university where name = '$school'");
-	foreach($universityQuery as $key => $val){
-	$ieeeName = ieeeName($value['firstname'], $value['lastname'], $value['middle_initial']);
-	$out = '';
-	$out .= '<p class = "citation-style"><strong>IEEE: </strong>'. $ieeeName . '"' . $value['title'] . '," ' . $value['type'] . ', ' . $value['department'] . ', '. $value['school'] . ', ' . $val['city'] . ', ' . $val['state'] . ', ' . $value['year'] . '.' .'</p>';
-	}
-	return $out;
-}
-
-function ieeeName($first, $last, $middle){
-	$mlaName = '';
-	if($middle != NULL){
-		$ieeeName = substr($first, 0, 1) . '. ' . substr($middle, 0) . '. ' . $last . ', ' ;
-	}
-	else{
-		$ieeeName = substr($first, 0, 1) . '. ' . $last . ', ';
-	}
-	return $ieeeName;
-}
 ?>
-
-<script>
-
-	$(document).ready(function(){
-		$('[id^=cite-me]').click(function(){
-			var val = $(this).attr('value');
-			if($('#citation' + val).hasClass("hidden")){
-				$('#citation' + val).removeClass("hidden");
-			}
-			else{
-				$('#citation' + val).addClass("hidden");
-			}
-		});
-	});
-
-</script>
