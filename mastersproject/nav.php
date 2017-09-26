@@ -1,9 +1,12 @@
 <?php
 			//Navigation section
+$out = '';
+$out .='<body>';
+$out .= '<div class="container">';
 $out .= 	'<div class="row">';
 $out .=  		'<div class="col-md-4">
 					<section class="header-logo">
-						<h1><a><img src = "src/img/msu_logo.png" ></img></a></h1>
+						<h1><a href = "index.php"><img src = "src/img/msu_logo.png" ></img></a></h1>
 					</section>
   				</div>';
 

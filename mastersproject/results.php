@@ -1,6 +1,7 @@
 <?php
-
+if(session_status() == PHP_SESSION_NONE){
 session_start();
+}
 require('connect.php');
 
 $out = '';
@@ -9,8 +10,6 @@ require('header.html');
 
 require_once('citations.php');
 
-$out .='<body>';
-$out .= '<div class="container">';
 
 require('nav.php');
 
@@ -70,10 +69,10 @@ $out .=	'<div class="row">';
 													<input type = "hidden"  name = "year" value = "'.$value['year'].'">
 													<input type = "hidden"  name = "data" value = "'.$value['data'].'">
 													<input type = "hidden"  name = "abstract" value = "'.$value['abstract'].'">
-														<input type = "submit" class = "result-title" value = "'.$value['title'].'" id = "result-title'.$c.'"> </input>'. '<span class = "person-name">By: '. $value['firstname'] . ' ' . $value['middle_initial'] . '. ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
+														<input type = "submit" class = "result-title" value = "'.$value['title'].'" id = "result-title'.$c.'"> </input><br>'. '<span class = "person-name">By: '. $value['firstname'] . ' ' . $value['middle_initial'] . '. ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
 													</form>';
 													if (strlen($value['abstract']) > 100){
-   														$abstract = substr($value['abstract'], 0, 300) . '...';
+   														$abstract = substr($value['abstract'], 0, 290) . '...';
 													
 								$out .=					'<p class = "result-abs" id = "result-abs'.$c.'">'.$abstract.'</p><br>';
 													}
@@ -98,11 +97,11 @@ $out .=	'<div class="row">';
 													<input type = "hidden"  name = "year" value = "'.$value['year'].'">
 													<input type = "hidden"  name = "data" value = "'.$value['data'].'">
 													<input type = "hidden"  name = "abstract" value = "'.$value['abstract'].'">
-													<input type = "submit" class = "result-title" value = "'.$value['title'].'" id = "result-title'.$c.'"></input>'. '<span class = "person-name"> By: '. $value['firstname'] . ' ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
+													<input type = "submit" class = "result-title" value = "'.$value['title'].'" id = "result-title'.$c.'"></input><br>'. '<span class = "person-name"> By: '. $value['firstname'] . ' ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
 
 													</form>';
 													if (strlen($value['abstract']) > 100){
-   														$abstract = substr($value['abstract'], 0, 300) . '...';
+   														$abstract = substr($value['abstract'], 0, 290) . '...';
 													
 								$out .=					'<p class = "result-abs" id = "result-abs'.$c.'">'.$abstract.'</p><br>';
 													}
@@ -166,7 +165,7 @@ $out .=	'</div>';
 $out .=	'</div>';
 $out .= '</body>';
 
-
+mysqli_close($con);
 require('footer.html');
 
 echo $out;

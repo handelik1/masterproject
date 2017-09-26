@@ -63,6 +63,68 @@ section.global-nav form {
     padding-top: 7px;
 }
 
+/*******Login******/
+
+.login-wrapper{
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5% 0%;
+    background-color: #CE1141;
+    width:65%;
+    height: 58%;
+}
+
+.repo-title{
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-size: 4.5em;
+    font-family: "Helvetica Condensed";
+}
+
+.credential-label{
+    margin-right: 5px;
+    font-size: 1.5em;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.password{
+    margin-left: 2px;
+}
+
+#password{  
+    margin-left: 3px;
+}
+
+.login-button{
+    text-align: center;
+    font-size: 1.5em;
+    width: 15%;
+    height: 15%;
+    line-height: 1px;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    margin-top: 5.5%;
+}
 /*******Content******/
 
 .hor-line{
@@ -246,7 +308,7 @@ section.global-nav form {
 }
 
 .author-name{
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .project-label{

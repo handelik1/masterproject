@@ -1,6 +1,7 @@
 <?php
-
+if(session_status() == PHP_SESSION_NONE){
 session_start();
+}
 require('connect.php');
 
 $out = '';
@@ -8,9 +9,6 @@ $out = '';
 require('header.html');
 
 require_once('citations2.php');
-
-$out .='<body>';
-$out .= '<div class="container">';
 
 require('nav.php');
 
@@ -56,7 +54,7 @@ $value = (array)$value;
 $out .=	'<div class="row">';
 
 $out .=		'<div class="col-md-5">';
-$out .=			'<h1 class = "title-header text-center">'.$title.'</h1>';
+$out .=			'<h2 class = "title-header text-center">'.$title.'</h2>';
 			if(isset($middle)){
 $out .=			'<p class = "author-name text-center">By: '.$first. ' ' . $middle . '. ' . $last .'</p>';
 			}
@@ -119,7 +117,7 @@ $out .= '</body>';
 
 
 require('footer.html');
-
+mysqli_close($con);
 echo $out;
 
 require('citations.php');
