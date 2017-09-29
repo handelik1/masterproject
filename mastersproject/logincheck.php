@@ -15,8 +15,9 @@ session_start();
 	
 	$username= mysqli_real_escape_string($con,$_POST['username']);
     $password= mysqli_real_escape_string($con,$_POST['password']);
+	$epass= hash('sha512', $username.$password);
 	
-	$logQuery= "SELECT * FROM users WHERE username= '$username' and password= '$password'";
+	$logQuery= "select * from users where username= '$username' and password= '$epass'";
 	
 	$result = mysqli_query($con, $logQuery);
 	

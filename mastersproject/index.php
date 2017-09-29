@@ -30,21 +30,21 @@ if(!isset($_SESSION['user'])){
 	     																#  Registration modal
 	$out .=     '<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">';
 	$out .=       '<div class="credential-panel" id="reg-panel">';
-	$out .=         '<form class="credential-form" id="reg-form" action = "register.php" method="post">';
+	$out .=         '<form onsubmit="return validateMyForm();" class="credential-form" id="reg-form" action = "register.php" method="post">';
 	$out .=           '<h2 class="sign-in">Registration</h2>';
-	$out .=           '<label class="credential-label" style="margin-top: 0px">First Name</label>';
-	$out .=           '<input class="reg-credential" id="reqacc_firstname" type="text">';
+	$out .=           '<label class="credential-label" >First Name</label>';
+	$out .=           '<input class="reg-credential" name="firstname" id="firstname" type="text">';
 	$out .=           '<label class="credential-label">Last Name</label>';
-	$out .=           '<input class="reg-credential" id="reqacc_lastname" type="text">';
+	$out .=           '<input class="reg-credential" name="lastname" id="lastname" type="text">';
 	$out .=           '<label class="credential-label">Email Address</label>';
-	$out .=           '<input class="reg-credential" id="reqacc_email" type="text">';
+	$out .=           '<input class="reg-credential" name="email" id="email" type="text">';
 	$out .=           '<label class="credential-label">User Name</label>';
-	$out .=           '<input class="reg-credential" id="reqacc_uname" type="text">';
+	$out .=           '<input class="reg-credential" name="username" id="username" type="text">';
 	$out .=           '<label class="credential-label">Password</label>';
-	$out .=           '<input class="reg-credential passpop" id="reqacc_pword" name="password" type="password" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="Password must be at least 8 characters long, contain at least one letter and at least 1 number.">';
+	$out .=           '<input class="reg-credential" name="password" id="pass" name="password" type="password">';
 	$out .=           '<label class="credential-label">Confirm Password</label>';
-	$out .=           '<input class="reg-credential" id="reqacc_confirmpword" type="password">';
-	$out .=           '<input type="submit" class="register-button" value="Submit" ">';
+	$out .=           '<input class="reg-credential" id="confirmpassword" type="password">';
+	$out .=           '<input type="submit" id = "submit" class="register-button" value="Submit" ">';
 	$out .=         '</form>';
 	$out .=       '</div>';
 	$out .=     '</div>';
@@ -71,7 +71,7 @@ else{
 	$out .=	'<div class="row">
 				<div class="col-md-12">
 					<form id = "search-form" class = "search-form text-center" action="results.php" method="post">
-						<input class = "search-bar" type = "text" name = "search"><br>
+						<input class = "search-bar" type = "text" name = "search" required><br>
 						<a class = "advanced">Advanced Search</a>
 					</form>
 	  			</div>
@@ -93,5 +93,44 @@ else{
 	echo $out;
 }
 
-	require('footer.html');
+    require('footer.html');
+
 ?>
+
+<script type="text/javascript">
+function validateMyForm()
+{
+  var pass = document.getElementById('pass').value;
+  var confirm = document.getElementById('confirmpassword').value;
+
+  if(pass != confirm)
+  { 
+    alert("Password and confirm password do not match.");
+    return false;
+  }
+
+  alert("Thank you for registering. Please login with your username and password.");
+  return true;
+}
+</script>
+
+<script>
+function validateEmail(email) {
+  var emailregex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return emailregex.test(email);
+}
+
+function validate() {
+  var email = $("#email").val();
+  if (validateEmail(email)) {
+  	return true;
+  } 
+  else {
+   alert("Email not valid.");
+    return false;
+  }
+
+}
+
+$("#submit").bind("click", validate);
+</script>

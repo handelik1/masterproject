@@ -30,7 +30,7 @@ $out .= 		'<div class="col-md-8">
 								}
 
 								if(isset($_SESSION['user']) && $row['user_type'] == 'admin'){
-$out .=								'<li class = "hover"><a class = "admin-button">Admin</a></li>';
+$out .=								'<li class = "hover"><a href="admin.php" class = "admin-link">Admin</a></li>';
 								}
 								if(isset($_SESSION['user'])){
 $out .=								'<li class = "hover"><a href="logout.php">Logout</a></li>';
