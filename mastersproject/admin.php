@@ -30,7 +30,7 @@ require('nav.php');
 	$out .=					'<div class = "admin_button text-center">Add New Project</div>';
 	$out .=				'</a>';
 	$out .=				'<div class = "back-button-wrapper">';
-	$out .=					'<a class = "back-button" href = "admin.php">Back</a>';
+	$out .=					'<a class = "back-button" href = "index.php">Back</a>';
 	$out .=				'</div>';
 	$out .=			'</div>';
 

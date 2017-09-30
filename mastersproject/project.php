@@ -31,7 +31,6 @@ $out .=	'<div class="row">
 		</div>';
 
 		//Project information
-$id = mysqli_real_escape_string($con,$_POST['id']);
 $abstract = stripcslashes(mysqli_real_escape_string($con,$_POST['abstract']));
 $title = stripslashes(mysqli_real_escape_string($con,$_POST['title']));
 $first = mysqli_real_escape_string($con,$_POST['firstname']);
@@ -44,12 +43,11 @@ $type = stripslashes(mysqli_real_escape_string($con,$_POST['type']));
 $department = mysqli_real_escape_string($con,$_POST['department']);
 $semester = mysqli_real_escape_string($con,$_POST['semester']);
 $year = mysqli_real_escape_string($con,$_POST['year']);
-if(isset($_POST['data'])){
-	$data = mysqli_real_escape_string($con,$_POST['data']);
-}
+$data = mysqli_real_escape_string($con,$_POST['data']);
 $key = mysqli_real_escape_string($con,$_POST['key']);
 $value = json_decode(htmlspecialchars_decode($_POST['value']));
 $value = (array)$value;
+
 
 $out .=	'<div class="row">';
 
@@ -66,14 +64,14 @@ $out .=			'<p class = "supervisor project-label text-center">Supervisor: '.$supe
 $out .=			'<p class = "project-type project-label text-center">Project Type: '.$type.'</p><br>';
 $out .=			'<p class = "department project-label text-center">Department: '.$department.'</p><br>';
 $out .=			'<p class = "date-published project-label text-center">Date Published: '.$semester. ' ' . $year .'</p><br>';
-$out .=			'<p class = "data project-label text-center">File: Placeholder</p><br>';
-$out .=			'<div class = "cite-me" id = "cite-me'.$id.'" value = "'.$id.'" data-toggle="modal" data-target="#citationModal'.$id.'">Cite Me</div>';
+$out .=			'<p class = "text-center"><a href="download.php?data='.$data.'" target="_blank" class = "data project-label">Download PDF</a></p><br>';
+$out .=			'<div class = "cite-me" id = "cite-me'.$data.'" value = "'.$data.'" data-toggle="modal" data-target="#citationModal'.$data.'">Cite Me</div>';
 
 								$out .= '<div class="container">
 										  <!-- Trigger the modal with a button -->
 
 										  <!-- Modal -->
-										  <div class="modal fade modal-container" id="citationModal'.$id.'" role="dialog">
+										  <div class="modal fade modal-container" id="citationModal'.$data.'" role="dialog">
 										    <div class="modal-dialog">
 										    
 										      <!-- Modal content-->
@@ -83,7 +81,7 @@ $out .=			'<div class = "cite-me" id = "cite-me'.$id.'" value = "'.$id.'" data-t
 										          <h4 class="modal-title">Citations</h4>
 										        </div>
 										        <div class="modal-body">';									          
-								$out .=			'<div class = "citation" id = "citation'.$id.'" value = "'.$id.'">';
+								$out .=			'<div class = "citation" id = "citation'.$data.'" value = "'.$data.'">';
 								$out .=				mla2($key,$value);
 								$out .=				ieee2($key,$value);
 								$out .=				acm2($key,$value);
@@ -122,4 +120,9 @@ echo $out;
 
 require('citations.php');
 
+
+ 
+
 ?>
+
+

@@ -57,7 +57,6 @@ $out .=	'<div class="row">';
 													<form id = "project-form" class = "project-form-results" action="project.php" method="post">
 													<input type = "hidden"  name = "key" value = "'.$key.'">
 													<input type = "hidden"  name = "value" value = "'.htmlspecialchars(json_encode($value)).'">
-													<input type = "hidden"  name = "id" value = "'.$value['id'].'">
 													<input type = "hidden"  name = "title" value = "'.$value['title'].'">
 													<input type = "hidden"  name = "firstname" value = "'.$value['firstname'].'">
 													<input type = "hidden"  name = "middle_initial" value = "'.$value['middle_initial'].'">
@@ -86,7 +85,6 @@ $out .=	'<div class="row">';
 													<form id = "project-form" class = "project-form-results" action="project.php" method="post">
 													<input type = "hidden"  name = "key" value = "'.$key.'">
 													<input type = "hidden"  name = "value" value = "'.htmlspecialchars(json_encode($value)).'">
-													<input type = "hidden"  name = "id" value = "'.$value['id'].'">
 													<input type = "hidden"  name = "title" value = "'.$value['title'].'">
 													<input type = "hidden"  name = "firstname" value = "'.$value['firstname'].'">
 													<input type = "hidden"  name = "lastname" value = "'.$value['lastname'].'">
@@ -145,7 +143,7 @@ $out .=	'<div class="row">';
 								$out .=		'</div>';
 											//End col-md-10
 								$out .=		'<div class="col-md-2">';
-												'<input type = "hidden" value = "'.$value['id'].'">';
+												'<input type = "hidden" value = "'.$value['data'].'">';
 								$out .=			'<div class = "cite-me" id = "cite-me'.$c.'" value = "'.$c.'" data-toggle="modal" data-target="#citationModal'.$c.'">Cite Me</div>';
 								$out .=		'</div>';
 								$c++;
