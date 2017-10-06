@@ -49,7 +49,7 @@ if(isset($_POST['add_project'])){
 	$count= mysqli_num_rows($result);
 	//checks if row is queried
 	if($count != 1){
-		$insertPublication = "insert into supervisor (name) VALUES ('$supervisor)";
+		$insertPublication = "insert into supervisor (name) VALUES ('$supervisor')";
 		mysqli_query($con, $insertPublication) or die('Error, query failed');
 	}
 
@@ -62,6 +62,21 @@ if(isset($_POST['add_project'])){
 	mysqli_query($con, $insertPublication) or die('Error, query failed');
 
     mysqli_close($con); 
+
+    header("Location: admin.php");
+}
+if(isset($_POST['remove_project'])){
+	$list = $_POST['check_list'];
+	foreach($list as $value){
+		$publication = mysqli_real_escape_string($con, $value);
+		$titleQuery  = mysqli_query($con, "select data from publications where title ='$publication'");
+		$id = mysqli_fetch_assoc($titleQuery);
+		$id = $id['data'];
+		$removeQuery = mysqli_query($con, "delete from publications where data = '$id'");
+		$removeData = mysqli_query($con, "delete from upload where id = $id");
+	}
+
+	mysqli_close($con); 
 
     header("Location: admin.php");
 }

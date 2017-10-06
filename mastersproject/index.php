@@ -22,7 +22,7 @@ if(!isset($_SESSION['user'])){
 	$out .= 							'<label class = "password credential-label-login">Password</label><input id = "password" type="password" name="password" size = "40" style = "width: 200px;"  required>';
 	$out .=							'</div>';
 	$out .= 				'</form>';
-	$out .=						'<input form = "login-form" class = "account-button" type = "submit" name = "submit" value = "Login">';
+	$out .=						'<input form = "login-form" id = "login-button" class = "account-button" type = "submit" name = "submit" value = "Login">';
 	$out .= 					'<button class = "account-button" name = "register" data-toggle="modal" data-target="#register-modal">Register</button>';
 	$out .=		  		'</div>';
 	$out .=			'</div>';

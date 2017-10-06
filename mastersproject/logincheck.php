@@ -32,7 +32,7 @@ session_start();
 	}
 	else {
 	echo '<script>alert("Wrong username or password!")</script>';
-	require('index.php');
+	echo '<script>window.history.back();</script>';
 	}
 	
 	

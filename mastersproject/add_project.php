@@ -40,7 +40,7 @@ require('nav.php');
 	$out .=					'<input type = "hidden" name = "add_project">';
 	$out .=					'<label class = "new_project_label">Title</label><input name = "new_title" class = "new_project_input" type = "text" size="46" required></input><br><br>';
 	$out .=					'<label class = "new_project_label">Name</label><br><input name = "new_first_name" class = "new_first_name" type = "text" size="18" placeholder = "First" required></input>';
-	$out .=					'<input  class = "new_middle_name" name = "new_middle_name" type = "text" size="2" placeholder = "M."></input>';
+	$out .=					'<input  class = "new_middle_name" name = "new_middle_name" type = "text" size="2" placeholder = "M"></input>';
 	$out .=					'<input class = "new_last_name" name = "new_last_name" type = "text" size="22" placeholder = "Last" required></input><br><br>';
 	$out .=					'<label class = "new_project_label">Supervisor</label><input name = "new_supervisor" id = "new_supervisor" class = "new_project_input new_supervisor" type = "text" size="39" required></input><br><br>';
 	$out .=					'<label class = "new_project_label">School</label><input name = "new_school" class = "new_project_input new_school" type = "text" size="43" required></input><br><br>';
@@ -57,7 +57,7 @@ require('nav.php');
 	$out .=					'</select><br><br>';
 	$out .=					'<label class = "new_project_label">File</label>';
 	$out .= 								'<input type="hidden" name="MAX_FILE_SIZE" value="200000000">';
-	$out .= 								'<input type="file" name="new_data" accept = "application/pdf">';
+	$out .= 								'<input type="file" name="new_data" accept = "application/pdf" required>';
 	$out .=				'</div>';
 
 	$out .=				'<div class="col-md-4">';
