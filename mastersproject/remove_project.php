@@ -100,7 +100,7 @@ require('nav.php');
 		$out .=	'</div>';
 	}
 	$out .= '</body>';
-
+    mysqli_close($con); 
 	echo $out;
 
     require('footer.html');

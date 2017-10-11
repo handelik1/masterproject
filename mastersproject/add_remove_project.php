@@ -49,13 +49,10 @@ if(isset($_POST['add_project'])){
 	$count= mysqli_num_rows($result);
 	//checks if row is queried
 	if($count != 1){
-		$insertPublication = "insert into supervisor (name) VALUES ('$supervisor')";
-		mysqli_query($con, $insertPublication) or die('Error, query failed');
+		$insertSupervisor = mysqli_query($con,"insert into supervisor (name) VALUES ('$supervisor')");
 	}
 
-	$insertFile = "insert into upload (name, size, type, data) VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
-
-	mysqli_query($con, $insertFile) or die('Error, query failed');
+	$insertFile = mysqli_query($con, "insert into upload (name, size, type, data) VALUES ('$fileName', '$fileSize', '$fileType', '$content')");
 
 	$insertPublication = "insert into publications (firstname, lastname, middle_initial, abstract, title, school, department, supervisor, semester, year, url, type) VALUES ('$first', '$last', '$middle', '$abstract', '$title', '$school', '$dept', '$supervisor', '$semester', '$year', '$url', '$type')";
 

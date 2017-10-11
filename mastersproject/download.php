@@ -19,6 +19,7 @@
                 echo $row['data'];
             }
 }
+    mysqli_close($con); 
 
 
 

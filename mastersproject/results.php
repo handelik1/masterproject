@@ -45,7 +45,7 @@ $out .= 	'</div>
 $out .=	'<div class="row">';
 				$search = mysqli_real_escape_string($con,$_POST['search']);
 
-				$publicationQuery = mysqli_query($con, "select * from publications where title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%'");
+				$publicationQuery = mysqli_query($con, "select * from publications where title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%' LIMIT 5;");
 				$count= mysqli_num_rows($publicationQuery);
 
 				if($count > 0){

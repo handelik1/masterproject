@@ -43,7 +43,7 @@ require('nav.php');
 	$out .=					'<input  class = "new_middle_name" name = "new_middle_name" type = "text" size="2" placeholder = "M"></input>';
 	$out .=					'<input class = "new_last_name" name = "new_last_name" type = "text" size="22" placeholder = "Last" required></input><br><br>';
 	$out .=					'<label class = "new_project_label">Supervisor</label><input name = "new_supervisor" id = "new_supervisor" class = "new_project_input new_supervisor" type = "text" size="39" required></input><br><br>';
-	$out .=					'<label class = "new_project_label">School</label><input name = "new_school" class = "new_project_input new_school" type = "text" size="43" required></input><br><br>';
+	$out .=					'<label class = "new_project_label">School</label><input name = "new_school" id = "new_school" class = "new_project_input new_school" type = "text" size="43" required></input><br><br>';
 	$out .=					'<label class = "new_project_label">Department</label><input name = "new_dept" class = "new_project_input new_dept" type = "text" size="38" required></input>';
 	$out .=				'</div>';
 
@@ -92,10 +92,16 @@ require('nav.php');
 
 <script type="text/javascript">
 $(function() {
-    var availableTags = <?php include('autocomplete.php'); ?>;
+    var availableTags = <?php include('autocompleteadvisor.php'); ?>;
+    var availableTagsSchool = <?php include('autocompleteschool.php'); ?>;
     $("#new_supervisor").autocomplete({
         source: availableTags,
         autoFocus:true
     });
+    $("#new_school").autocomplete({
+        source: availableTagsSchool,
+        autoFocus:true
+    });
 });
 </script>
+
