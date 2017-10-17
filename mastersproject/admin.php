@@ -41,7 +41,7 @@ require('nav.php');
 	$out .=			'</div>';
 
 	$out .=			'<div class="col-md-4">';
-	$out .=				'<a class = "admin_link_button" href = "user_settings.php">';
+	$out .=				'<a class = "admin_link_button" href = "edit_users.php">';
 	$out .=					'<div class = "admin_button text-center">Edit Users</div>';
 	$out .=				'</a>';
 	$out .=			'</div>';

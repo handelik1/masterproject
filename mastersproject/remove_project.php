@@ -14,12 +14,12 @@ require('nav.php');
 	$out .=			'<div class="col-md-12">';
 	$out .= 			 '<hr class = "hor-line">';
 	$out .=			'</div>';
-	$out .=     '</div>';
+
 	$out .=			'<div class="col-md-12">';
 	$out .= 			 '<h1>Administration</h1>';
 	$out .=			'</div>';
 	$out .=     '</div>';
-	$out .= 	'</div>';
+
 	$out .=		'<div class="row">';
 	$out .=			'<div class="col-md-12">';
 	$out .=				'<h3 class = "new_project_header text-center">Remove A Project</h3>';
@@ -59,7 +59,7 @@ require('nav.php');
 
 		$out .=		'<div class="col-md-8">';
 		$out .= 	'<div class = "remove-wrapper">';
-		$out.= '<form id = "remove_project_form" class = "project-form-results" action="add_remove_project.php" method="post">';
+		$out.= '<form onsubmit= "return sure()" id = "remove_project_form" class = "project-form-results" action="add_remove_project.php" method="post">';
 									$out .=		'<input type = "hidden" name = "remove_project">';
 					if($count > 0){
 							$c = 0;
@@ -108,5 +108,13 @@ require('nav.php');
 ?>
 
 <script>
+function sure(){
+	if (confirm('Are You Sure? This CANNOT be undone!')){
+	   return true;
+	}
+	else{
+	   return false;
+	}
+}
 
 </script>
