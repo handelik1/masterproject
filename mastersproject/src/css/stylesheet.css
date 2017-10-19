@@ -322,7 +322,20 @@ section.global-nav form {
     margin-bottom: 0px;
 }
 
-/*******Results*******/
+.page-wrapper{
+    text-align: center;
+}
+
+.page-wrapper .pagination a, .dash{
+    font-size: 1.5em;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.current{
+    font-weight: bold;
+}
+/*******Project Results*******/
 
 .result-title{
     font-size: 1.5em;
@@ -516,4 +529,30 @@ section.global-nav form {
     border-right: 2px solid black;
     border-top: 1px solid gray;
     border-left: 1px solid gray;
+}
+
+/********Edit Users*********/
+
+.edit-users-wrapper{
+    height: 50%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 30px;
+}
+
+
+.remove-user-button{
+    background-color: white;
+    border: none;
+    color: blue;
+    float: right;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.user{
+    background-color: white;
+    border: none;
+    font-size: 1.3em;
+    margin-bottom: 20px;
 }
