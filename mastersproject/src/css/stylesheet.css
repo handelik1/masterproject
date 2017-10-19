@@ -587,8 +587,55 @@ section.global-nav form {
   
 }
 
+.remove-all{
+    width: 40%;
+    height: 9%;
+    font-size: 1em;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    padding: 5px 0px;
+
+}
+
+.advanced-submit{
+    width: 40%;
+    height: 5%;
+    font-size: 1em;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    padding: 5px 0px;
+}
+
+.advanced-form-wrapper{
+    overflow-y: auto;
+    height: 90%;
+}
+
+.remove-all-wrapper, .submit-wrapper{
+    text-align: center;
+}
+
 legend{
     margin-top: 15%;
+    text-align: center;
+}
+
+fieldset{
+    height: 70%;
 }
 
 .field{
@@ -608,8 +655,7 @@ legend{
     font-size: .8em;
     background-color: #CE1141;
     color: white;
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
+    border: 2px solid black;
     text-align: center;
     padding-left: 2px;
     line-height: 20px;

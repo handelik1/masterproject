@@ -56,6 +56,10 @@ $out .=	'<div class="row">';
 if(isset($_POST['search'])){
 	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['search']);
 }
+
+if(isset($_POST['advanced_search'])){
+	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['advanced_search']);
+}
 $search = $_SESSION['search'];
 
 
