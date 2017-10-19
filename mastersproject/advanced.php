@@ -87,7 +87,7 @@ $(document).ready(function() {
 			}
 			else{
 			   	$("<div class = 'key-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.key-title');
-			   	$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.key-field');
+			   	$("<div class = 'remove-field-button'>X</div>").insertBefore('.key-field');
 			    $('.key-field').attr('class', 'field key-field' + c);
 			   	c++;
 			}
@@ -105,7 +105,7 @@ $(document).ready(function() {
 				}
 				else{
 			   		$("<div class = 'key-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.key-title');
-			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.key-field');
+			   		$("<div class = 'remove-field-button'>X</div>").insertBefore('.key-field');
 			   		$('.key-field').attr('class', 'field key-field' + c);
 			   		c++;
 				}
@@ -135,7 +135,7 @@ $(document).ready(function() {
 			}
 			else{
 			   	$("<div class = 'year-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.year-title');
-			   	$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.year-field');
+			   	$("<div class = 'remove-field-button'>X</div>").insertBefore('.year-field');
 			   	$('.year-field').attr('class', 'field year-field' + d);
 			   	d++;
 			}
@@ -153,7 +153,7 @@ $(document).ready(function() {
 				}
 				else{
 			   		$("<div class = 'year-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.year-title');
-			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.year-field');
+			   		$("<div class = 'remove-field-button'>X</div>").insertBefore('.year-field');
 			   		$('.year-field').attr('class', 'field year-field' + d);
 			   		d++;
 				}
@@ -182,7 +182,7 @@ $(document).ready(function() {
 			}
 			else{
 			   	$("<div class = 'semester-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.semester-title');
-			   	$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.semester-field');
+			   	$("<div class = 'remove-field-button'>X</div>").insertBefore('.semester-field');
 			   	$('.semester-field').attr('class', 'field semester-field' + e);
 			   	e++;
 			}
@@ -199,7 +199,7 @@ $(document).ready(function() {
 					}
 				else{
 			   		$("<div class = 'semester-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.semester-title');
-			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.semester-field');
+			   		$("<div class = 'remove-field-button'>X</div>").insertBefore('.semester-field');
 			   		$('.semester-field').attr('class', 'field semester-field' + e);
 			   		e++;
 					}
@@ -221,34 +221,34 @@ $(document).ready(function() {
 
 			if (!$(".advisor-title")[0]){
 			    $('.advanced-add-field').append("<div><h4 class = 'advisor-title field-title'>Advisor</h4>");
-			   		$("<div class = 'advisor-field field'>" + value + "</div><br>").insertAfter('.advisor-title');
-			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.advisor-field');
-			   		$('.advisor-field').attr('class', 'field advisor-field' + f);
-			   		f++;
+			   	$("<div class = 'advisor-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.advisor-title');
+			   	$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.advisor-field');
+			   	$('.advisor-field').attr('class', 'field advisor-field' + f);
+			   	f++;
 			}
 			else{
-			   		$("<div class = 'advisor-field field'>" + value + "</div><br>").insertAfter('.advisor-title');
-			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.advisor-field');
-			   		$('.advisor-field').attr('class', 'field advisor-field' + f);
-			   		f++;
+			   	$("<div class = 'advisor-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.advisor-title');
+			   	$("<div class = 'remove-field-button'>X</div>").insertBefore('.advisor-field');
+			    $('.advisor-field').attr('class', 'field advisor-field' + f);
+			   	f++;
 			}
 			$('#advisor').val('');
 
 			}
 			else{
-			
+
 				if (!$(".advisor-title")[0]){
 			    	$('.advanced-add-field').append("<div><h4 class = 'advisor-title field-title'>Advisor</h4>");
-			   		$("<div class = 'advisor-field field'>" + value + "</div><br>").insertAfter('.advisor-title');
+			   		$("<div class = 'advisor-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.advisor-title');
 			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.advisor-field');
 			   		$('.advisor-field').attr('class', 'field advisor-field' + f);
-			   		f++;
+			   		c++;
 				}
 				else{
-			   		$("<div class = 'advisor-field field'>" + value + "</div><br>").insertAfter('.advisor-title');
-			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.advisor-field');
-			   		$('.advisor-field').attr('class', 'field advisor-field' + f);
-			   		f++;
+			   		$("<div class = 'advisor-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.advisor-title');
+			   		$("<div class = 'remove-field-button'>X</div>").insertBefore('.advisor-field');
+			   		$('.advisor-field').attr('class', 'field advisor-field' + c);
+			   		c++;
 				}
 				$('#advisor').val('');
 
@@ -269,14 +269,14 @@ $(document).ready(function() {
 
 			if (!$(".school-title")[0]){
 			    $('.advanced-add-field').append("<div><h4 class = 'school-title field-title'>School</h4>");
-			   		$("<div class = 'school-field field'>" + value + "</div><br>").insertAfter('.school-title');
+			   		$("<div class = 'school-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.school-title');
 			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.school-field');
 			   		$('.school-field').attr('class', 'field school-field' + g);
 			   		g++;
 			}
 			else{
-			   		$("<div class = 'school-field field'>" + value + "</div><br>").insertAfter('.school-title');
-			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.school-field');
+			   		$("<div class = 'school-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.school-title');
+			   		$("<div class = 'remove-field-button'>X</div>").insertBefore('.school-field');
 			   		$('.school-field').attr('class', 'field school-field' + g);
 			   		g++;
 			}
@@ -287,14 +287,14 @@ $(document).ready(function() {
 			
 				if (!$(".school-title")[0]){
 			    	$('.advanced-add-field').append("<div><h4 class = 'school-title field-title'>School</h4>");
-			   		$("<div class = 'school-field field'>" + value + "</div><br>").insertAfter('.school-title');
+			   		$("<div class = 'school-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.school-title');
 			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.school-field');
 			   		$('.school-field').attr('class', 'field school-field' + g);
 			   		g++;
 				}
 				else{
-			   		$("<div class = 'school-field field'>" + value + "</div><br>").insertAfter('.school-title');
-			   		$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.school-field');
+			   		$("<div class = 'school-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.school-title');
+			   		$("<div class = 'remove-field-button'>X</div>").insertBefore('.school-field');
 			   		$('.school-field').attr('class', 'field school-field' + g);
 			   		g++;
 				}
@@ -316,14 +316,14 @@ $(document).ready(function() {
 
 			if (!$(".dept-title")[0]){
 			    $('.advanced-add-field').append("<div><h4 class = 'dept-title field-title'>Department</h4>");
-			   	$("<div class = 'dept-field'>" + value + "</div><br>").insertAfter('.dept-title');
+			   	$("<div class = 'dept-field'>" + value + "</div><br class = 'field-break'>").insertAfter('.dept-title');
 			   	$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.dept-field');
 			   	$('.dept-field').attr('class', 'field dept-field' + h);
 			   	h++;
 			}
 			else{
-			   	$("<div class = 'dept-field'>" + value + "</div><br>").insertAfter('.dept-title');
-			   	$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.dept-field');
+			   	$("<div class = 'dept-field'>" + value + "</div><br class = 'field-break'>").insertAfter('.dept-title');
+			   	$("<div class = 'remove-field-button'>X</div>").insertBefore('.dept-field');
 			   	$('.dept-field').attr('class', 'field dept-field' + h);
 			   	h++;
 			}
@@ -334,14 +334,14 @@ $(document).ready(function() {
 			
 				if (!$(".dept-title")[0]){
 			    $('.advanced-add-field').append("<div><h4 class = 'dept-title field-title'>Department</h4>");
-			   	$("<div class = 'dept-field'>" + value + "</div><br>").insertAfter('.dept-title');
+			   	$("<div class = 'dept-field'>" + value + "</div><br class = 'field-break'>").insertAfter('.dept-title');
 			   	$("<div class = 'remove-field-button'>X</div></div>").insertBefore('.dept-field');
 			   	$('.dept-field').attr('class', 'field dept-field' + h);
 			   	h++;
 				}
 				else{
-			   	$("<div class = 'dept-field'>" + value + "</div><br>").insertAfter('.dept-title');
-			   	$("<div class = 'remove-field-button'>X</div></div>").insertBefore('dept-field');
+			   	$("<div class = 'dept-field'>" + value + "</div><br class = 'field-break'>").insertAfter('.dept-title');
+			   	$("<div class = 'remove-field-button'>X</div>").insertBefore('dept-field');
 			   	$('.dept-field').attr('class', 'field dept-field' + h);
 			   	h++;
 				}
