@@ -72,7 +72,7 @@ else{
 				<div class="col-md-12">
 					<form id = "search-form" class = "search-form text-center" action="results.php" method="post">
 						<input class = "search-bar" type = "text" name = "search" required><br>
-						<a class = "advanced">Advanced Search</a>
+						<a href = "advanced.php" class = "advanced">Advanced Search</a>
 					</form>
 	  			</div>
 			</div>';
@@ -88,7 +88,6 @@ else{
 	$out .=	'</div>';
 	$out .= '</body>';
 
-	require('footer.html');
 
 	echo $out;
 }
