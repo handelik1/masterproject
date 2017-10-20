@@ -377,7 +377,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-
+		$('#key-button').prop("disabled",false);
+		$('#key-button').css("background-color", "#CE1141");
     	if(keyTitle.siblings().length < 1){
     		$('.key-title').remove();
     	}
@@ -390,7 +391,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-    	
+    	$('#year-button').prop("disabled",false);
+		$('#year-button').css("background-color", "#CE1141");
     	if(yearTitle.siblings().length < 1){
     		$('.year-title').remove();
     	}
@@ -403,7 +405,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-    	
+  		$('#semester-button').prop("disabled",false);
+		$('#semester-button').css("background-color", "#CE1141");
     	if(semesterTitle.siblings().length < 1){
     		$('.semester-title').remove();
     	}
@@ -416,7 +419,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-    	
+		$('#advisor-button').prop("disabled",false);
+		$('#advisor-button').css("background-color", "#CE1141");    	
     	if(advisorTitle.siblings().length < 1){
     		$('.advisor-title').remove();
     	}
@@ -428,7 +432,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-    	
+		$('#school-button').prop("disabled",false);
+		$('#school-button').css("background-color", "#CE1141");   	
     	if(schoolTitle.siblings().length < 1){
     		$('.school-title').remove();
     	}
@@ -441,7 +446,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-    	
+		$('#dept-button').prop("disabled",false);
+		$('#dept-button').css("background-color", "#CE1141");   	
     	if(deptTitle.siblings().length < 1){
     		$('.dept-title').remove();
     	}
@@ -463,7 +469,22 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   	$('.advanced-submit').click(function() {
+	var children = $('.advanced-field-submit').children();
+	var build = new Array();
+		for (var i = 0; i < children.length; i++) {
+		  var child = children[i];
+		  if(child.innerHTML != '' || child.innerHTML != null){
+		  build[i] = child.innerHTML;
+		  }
+		}
+		$('#advanced-query').val(build);
+  });
+ });
+</script>
 
+<script>
+	$(document).on('click', '.add-button', function() {
+		$(this).prop("disabled",true);
+		$(this).css("background-color", "gray");
 	});
-});
 </script>

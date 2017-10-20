@@ -55,16 +55,57 @@ $out .=	'<div class="row">';
 
 if(isset($_POST['search'])){
 	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['search']);
+	$search = $_SESSION['search'];
 }
 
 if(isset($_POST['advanced_search'])){
 	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['advanced_search']);
+	$search = $_SESSION['search'];
+	$search = str_replace(",,,", ',', $search);
+	$search = str_replace(",,", ',', $search);
+	$search = str_replace(",,", ',', $search);
+	$build = explode(",",$search);
+	end($build);
+	$key = key($build);
+	unset($build[$key]);
 }
-$search = $_SESSION['search'];
+if(isset($build)){
+	$buildQuery = '';
+	$_SESSION['word'] = '';
+	for($i = 0; $i < count($build); $i++){
+		if($build[$i] == "Year"){
+			$_SESSION['word'] = "Year";
+			$buildQuery .= "year like '%" . $build[$i+1] . "%' and ";
+		}
+		else if($build[$i] == "Semester"){
+			$buildQuery .= "semester like '%" . $build[$i+1] . "%' and ";
+		}
+		else if($build[$i] == "Advisor"){
 
+			$buildQuery .= "supervisor like '%" . $build[$i+1] . "%' and ";
+		}
+		else if($build[$i] == "School"){
+			$buildQuery .= "school like '%" . $build[$i+1] . "%' and ";
+		}
+		else if($build[$i] == "Department"){
+			$buildQuery .= "department like '%" . $build[$i+1] . "%' and ";
+		}
+		else if($build[$i] == "Keyword"){
+			$buildQuery .= "abstract like '%" . $build[$i+1] . "%' and ";
+		}
 
-$publicationQuery = mysqli_query($con, "select * from publications where title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%' LIMIT $start, $limit;");
-$count= mysqli_num_rows($publicationQuery);
+}
+
+$buildQuery = substr($buildQuery, 0, -4);
+
+}
+if(isset($_POST['search'])){
+$publicationQuery = mysqli_query($con, "select * from publications where title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%' LIMIT $start, $limit");
+}
+else{
+$publicationQuery = mysqli_query($con, "select * from publications where $buildQuery LIMIT $start, $limit");
+}
+$count = mysqli_num_rows($publicationQuery);
 
 if($count > 0){
 		$c = 0;
