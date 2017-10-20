@@ -377,8 +377,6 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-		//$('#key-button').prop("disabled",false);
-		//$('#key-button').css("background-color", "#CE1141");
     	if(keyTitle.siblings().length < 1){
     		$('.key-title').remove();
     	}
@@ -391,8 +389,6 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-    	//$('#year-button').prop("disabled",false);
-		//$('#year-button').css("background-color", "#CE1141");
     	if(yearTitle.siblings().length < 1){
     		$('.year-title').remove();
     	}
@@ -405,8 +401,6 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-  		//$('#semester-button').prop("disabled",false);
-		//$('#semester-button').css("background-color", "#CE1141");
     	if(semesterTitle.siblings().length < 1){
     		$('.semester-title').remove();
     	}
@@ -418,9 +412,7 @@ $(document).ready(function() {
 		var advisorTitle = $('.advisor-title');
 		$(this).next().next().remove();
     	$(this).next().remove();
-    	$(this).remove();
-		//$('#advisor-button').prop("disabled",false);
-		//$('#advisor-button').css("background-color", "#CE1141");    	
+    	$(this).remove();    	
     	if(advisorTitle.siblings().length < 1){
     		$('.advisor-title').remove();
     	}
@@ -431,9 +423,7 @@ $(document).ready(function() {
 		var schoolTitle = $('.school-title');
 		$(this).next().next().remove();
     	$(this).next().remove();
-    	$(this).remove();
-		//$('#school-button').prop("disabled",false);
-		//$('#school-button').css("background-color", "#CE1141");   	
+    	$(this).remove(); 	
     	if(schoolTitle.siblings().length < 1){
     		$('.school-title').remove();
     	}
@@ -445,9 +435,7 @@ $(document).ready(function() {
 		var deptTitle = $('.dept-title');
 		$(this).next().next().remove();
     	$(this).next().remove();
-    	$(this).remove();
-		//$('#dept-button').prop("disabled",false);
-		//$('#dept-button').css("background-color", "#CE1141");   	
+    	$(this).remove();  	
     	if(deptTitle.siblings().length < 1){
     		$('.dept-title').remove();
     	}
@@ -481,12 +469,3 @@ $(document).ready(function() {
   });
  });
 </script>
-
-
-
-<!--<script>
-	$(document).on('click', '.add-button', function() {
-		$(this).prop("disabled",true);
-		$(this).css("background-color", "gray");
-	});
-</script>-->
