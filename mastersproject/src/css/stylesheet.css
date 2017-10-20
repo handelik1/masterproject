@@ -531,6 +531,10 @@ section.global-nav form {
     border-left: 1px solid gray;
 }
 
+.remove-back-button-wrapper, .edit-back-button-wrapper{
+    position: absolute;
+    top: 400px;
+}
 /********Edit Users*********/
 
 .edit-users-wrapper{

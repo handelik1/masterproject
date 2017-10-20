@@ -32,6 +32,9 @@ require('nav.php');
 	$out .=	'<div class="row">';
 
 	$out .=		'<div class="col-md-3">';
+	$out .=				'<div class = "edit-back-button-wrapper">';
+	$out .=					'<a class = "back-button" href = "admin.php">Back</a>';
+	$out .=				'</div>';
 	$out .=		'</div>';
 
 	$out .=		'<div class="col-md-6">';
