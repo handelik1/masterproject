@@ -30,7 +30,7 @@ $out .=					'<button id = "year-button" class = "add-button">Add</button><br>';
 $out .=					'<label>Semester</label><br>';
 $out .=					'<input id = "semester" class = "advanced-field" type = "text"></input>';
 $out .=					'<button id = "semester-button" class = "add-button">Add</button><br>';
-$out .=					'<label>Advisor</label><br>';
+$out .=					'<label>Supervisor</label><br>';
 $out .=					'<input id = "advisor" class = "advanced-field" type = "text"></input>';
 $out .=					'<button id = "advisor-button" class = "add-button">Add</button><br>';
 $out .=					'<label>School</label><br>';
@@ -235,7 +235,7 @@ $(document).ready(function() {
 		if(parent.children().length < 1){
 
 			if (!$(".advisor-title")[0]){
-			    $('.advanced-add-field').append("<div class = 'advanced-field-submit'><h5 class = 'advisor-title field-title'>Advisor</h5>");
+			    $('.advanced-add-field').append("<div class = 'advanced-field-submit'><h5 class = 'advisor-title field-title'>Supervisor</h5>");
 			   	$("<div class = 'advisor-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.advisor-title');
 			   	$("<input class = 'remove-field-button' value = 'X'></input></div>").insertBefore('.advisor-field');
 			   	$('.advisor-field').attr('class', 'field advisor-field' + f);
@@ -253,7 +253,7 @@ $(document).ready(function() {
 			else{
 
 				if (!$(".advisor-title")[0]){
-			    	$('.advanced-add-field').append("<div class = 'advanced-field-submit'><h5 class = 'advisor-title field-title'>Advisor</h5>");
+			    	$('.advanced-add-field').append("<div class = 'advanced-field-submit'><h5 class = 'advisor-title field-title'>Supervisor</h5>");
 			   		$("<div class = 'advisor-field field'>" + value + "</div><br class = 'field-break'>").insertAfter('.advisor-title');
 			   		$("<input class = 'remove-field-button' value = 'X'></input></div>").insertBefore('.advisor-field');
 			   		$('.advisor-field').attr('class', 'field advisor-field' + f);
@@ -377,8 +377,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-		$('#key-button').prop("disabled",false);
-		$('#key-button').css("background-color", "#CE1141");
+		//$('#key-button').prop("disabled",false);
+		//$('#key-button').css("background-color", "#CE1141");
     	if(keyTitle.siblings().length < 1){
     		$('.key-title').remove();
     	}
@@ -391,8 +391,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-    	$('#year-button').prop("disabled",false);
-		$('#year-button').css("background-color", "#CE1141");
+    	//$('#year-button').prop("disabled",false);
+		//$('#year-button').css("background-color", "#CE1141");
     	if(yearTitle.siblings().length < 1){
     		$('.year-title').remove();
     	}
@@ -405,8 +405,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-  		$('#semester-button').prop("disabled",false);
-		$('#semester-button').css("background-color", "#CE1141");
+  		//$('#semester-button').prop("disabled",false);
+		//$('#semester-button').css("background-color", "#CE1141");
     	if(semesterTitle.siblings().length < 1){
     		$('.semester-title').remove();
     	}
@@ -419,8 +419,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-		$('#advisor-button').prop("disabled",false);
-		$('#advisor-button').css("background-color", "#CE1141");    	
+		//$('#advisor-button').prop("disabled",false);
+		//$('#advisor-button').css("background-color", "#CE1141");    	
     	if(advisorTitle.siblings().length < 1){
     		$('.advisor-title').remove();
     	}
@@ -432,8 +432,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-		$('#school-button').prop("disabled",false);
-		$('#school-button').css("background-color", "#CE1141");   	
+		//$('#school-button').prop("disabled",false);
+		//$('#school-button').css("background-color", "#CE1141");   	
     	if(schoolTitle.siblings().length < 1){
     		$('.school-title').remove();
     	}
@@ -446,8 +446,8 @@ $(document).ready(function() {
 		$(this).next().next().remove();
     	$(this).next().remove();
     	$(this).remove();
-		$('#dept-button').prop("disabled",false);
-		$('#dept-button').css("background-color", "#CE1141");   	
+		//$('#dept-button').prop("disabled",false);
+		//$('#dept-button').css("background-color", "#CE1141");   	
     	if(deptTitle.siblings().length < 1){
     		$('.dept-title').remove();
     	}
@@ -482,9 +482,11 @@ $(document).ready(function() {
  });
 </script>
 
-<script>
+
+
+<!--<script>
 	$(document).on('click', '.add-button', function() {
 		$(this).prop("disabled",true);
 		$(this).css("background-color", "gray");
 	});
-</script>
+</script>-->

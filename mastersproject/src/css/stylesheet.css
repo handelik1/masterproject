@@ -656,15 +656,15 @@ fieldset{
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    font-size: .8em;
+    font-size: .9em;
     background-color: #CE1141;
     color: white;
     border: 2px solid black;
     text-align: center;
-    padding-left: 2px;
     line-height: 20px;
     display: inline-block;
-    margin-left: 5%
+    margin-left: 5%;
+    font-weight: bold;
 }
 .remove-field-button:hover{
     cursor: pointer;

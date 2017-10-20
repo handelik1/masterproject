@@ -53,52 +53,57 @@ $start = ($page-1) * $limit;
 		//Results information
 $out .=	'<div class="row">';
 
+//regular search
 if(isset($_POST['search'])){
 	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['search']);
 	$search = $_SESSION['search'];
 }
-
+//advanced search
 if(isset($_POST['advanced_search'])){
 	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['advanced_search']);
 	$search = $_SESSION['search'];
+	//removes unnecesarry commas
 	$search = str_replace(",,,", ',', $search);
-	$search = str_replace(",,", ',', $search);
-	$search = str_replace(",,", ',', $search);
+	for($k = 0; $k < 5; $k++){
+		$search = str_replace(",,", ',', $search);
+	}
+
 	$build = explode(",",$search);
 	end($build);
 	$key = key($build);
 	unset($build[$key]);
-}
-if(isset($build)){
-	$buildQuery = '';
-	$_SESSION['word'] = '';
-	for($i = 0; $i < count($build); $i++){
-		if($build[$i] == "Year"){
-			$_SESSION['word'] = "Year";
-			$buildQuery .= "year like '%" . $build[$i+1] . "%' and ";
+	//builds an associative array with field names as key and user input as values.
+	if(isset($build)){
+		$buildQuery = '';
+		$word = '';
+		$insideArray = array();
+		$buildArray = array_fill_keys(array('Keyword', 'Year', 'Semester', 'Supervisor', 'School', 'Department'), $insideArray);
+		for($i = 0; $i < count($build); $i++){
+			if($build[$i] == "Year" || $build[$i] == "Semester" || $build[$i] == "Supervisor" || $build[$i] == "Department" || $build[$i] == "School" || $build[$i] == "Keyword"){
+				$word = $build[$i];
+				$buildArray[$word][$i]= $build[$i];
+			}
+			else{
+				$buildArray[$word][$i-1] = $build[$i];	
+			}
 		}
-		else if($build[$i] == "Semester"){
-			$buildQuery .= "semester like '%" . $build[$i+1] . "%' and ";
-		}
-		else if($build[$i] == "Advisor"){
+		//takes associate array and builds the query.
+		foreach($buildArray as $key => $value){
 
-			$buildQuery .= "supervisor like '%" . $build[$i+1] . "%' and ";
+				foreach($value as $item){
+					if($key == 'Keyword'){
+					$key = 'abstract';
+				}
+				$key = lcfirst($key);
+				$buildQuery .= $key ." like '%" . $item . "%' and ";
+				}
 		}
-		else if($build[$i] == "School"){
-			$buildQuery .= "school like '%" . $build[$i+1] . "%' and ";
-		}
-		else if($build[$i] == "Department"){
-			$buildQuery .= "department like '%" . $build[$i+1] . "%' and ";
-		}
-		else if($build[$i] == "Keyword"){
-			$buildQuery .= "abstract like '%" . $build[$i+1] . "%' and ";
-		}
-
-}
+	}
 
 $buildQuery = substr($buildQuery, 0, -4);
 
 }
+
 if(isset($_POST['search'])){
 $publicationQuery = mysqli_query($con, "select * from publications where title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%' LIMIT $start, $limit");
 }
@@ -225,9 +230,12 @@ $out .=		'</div>';
 $out .=		'<div class = "col-md-8">';
 $out .=		  '<div class = "page-wrapper">';
 $out .= 		'<div class="pagination">'; 
-
-$countQuery = mysqli_query($con, "select data from publications where title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%'");
-
+if(isset($_POST['search'])){
+	$countQuery = mysqli_query($con, "select data from publications where title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%'");
+}
+else{
+	$countQuery = mysqli_query($con, "select data from publications where $buildQuery LIMIT $start, $limit");
+}
 $countAmount= mysqli_num_rows($countQuery);
 $total_records = $countAmount;
 $total_pages = ceil($total_records / $limit); 
