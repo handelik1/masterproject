@@ -52,12 +52,14 @@ $start = ($page-1) * $limit;
 
 		//Results information
 $out .=	'<div class="row">';
-
+$search = $_SESSION['search'];
 //regular search
 if(isset($_POST['search'])){
+	unset($_SESSION['$buildQuery']);
 	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['search']);
 	$search = $_SESSION['search'];
 }
+$buildQuery = "title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%'";
 //advanced search
 if(isset($_POST['advanced_search'])){
 	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['advanced_search']);
@@ -100,16 +102,18 @@ if(isset($_POST['advanced_search'])){
 		}
 	}
 
-$buildQuery = substr($buildQuery, 0, -4);
-
+$_SESSION['$buildQuery'] = substr($buildQuery, 0, -4);
+$buildQuery = $_SESSION['$buildQuery'];
 }
 
-if(isset($_POST['search'])){
-$publicationQuery = mysqli_query($con, "select * from publications where title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%' LIMIT $start, $limit");
+if(isset($_SESSION['$buildQuery'])){
+$buildQuery = $_SESSION['$buildQuery'];
+$publicationQuery = mysqli_query($con, "select * from publications where $buildQuery LIMIT $start, $limit");
 }
 else{
 $publicationQuery = mysqli_query($con, "select * from publications where $buildQuery LIMIT $start, $limit");
 }
+
 $count = mysqli_num_rows($publicationQuery);
 
 if($count > 0){
@@ -230,12 +234,16 @@ $out .=		'</div>';
 $out .=		'<div class = "col-md-8">';
 $out .=		  '<div class = "page-wrapper">';
 $out .= 		'<div class="pagination">'; 
-if(isset($_POST['search'])){
-	$countQuery = mysqli_query($con, "select data from publications where title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%'");
+
+
+if(isset($_SESSION['$buildQuery'])){
+$buildQuery = $_SESSION['$buildQuery'];
+$countQuery = mysqli_query($con, "select data from publications where $buildQuery");
 }
 else{
-	$countQuery = mysqli_query($con, "select data from publications where $buildQuery LIMIT $start, $limit");
+$countQuery = mysqli_query($con, "select data from publications where $buildQuery");
 }
+
 $countAmount= mysqli_num_rows($countQuery);
 $total_records = $countAmount;
 $total_pages = ceil($total_records / $limit); 
