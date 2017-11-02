@@ -142,7 +142,7 @@ section.global-nav form {
     border-radius: 5px;
 }
 
-.credential-form{
+.credential-form, .new-pass-form{
     background-color: #CE1141;
     border-radius: 5px;
     margin-bottom: 0px !important;
@@ -169,7 +169,7 @@ section.global-nav form {
     border: 1px solid black;
 }
 
-.register-button, .new-project-button{
+.register-button, .new-project-button, .change-pass-button{
     margin-top: 2.5%;
     margin-bottom: 2.5%;
     margin-left: 42.5%;
@@ -210,6 +210,11 @@ section.global-nav form {
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+
+.password-regex{
+    color: white;
+    font-size: .85em;
 }
 
 /*******Content******/
@@ -327,9 +332,9 @@ section.global-nav form {
 }
 
 .page-wrapper .pagination a, .dash{
-    font-size: 1.5em;
-    margin-left: 10px;
-    margin-right: 10px;
+    font-size: 1.3em;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .current{
@@ -478,6 +483,11 @@ section.global-nav form {
     margin-top: 10%;
 }
 
+.semester-radio{
+    font-size: 1.22em;
+    margin-right: 30px;
+}
+
 /*******Remove Project******/
 
 .remove-button-results{
@@ -545,7 +555,7 @@ section.global-nav form {
 }
 
 
-.remove-user-button{
+.remove-user-button, .change-pass{
     background-color: white;
     border: none;
     color: blue;

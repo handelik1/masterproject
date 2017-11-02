@@ -27,10 +27,10 @@ if(!isset($_SESSION['user'])){
 	$out .=		  		'</div>';
 	$out .=			'</div>';
 
-	     																#  Registration modal
+	     		#  Registration modal
 	$out .=     '<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">';
 	$out .=       '<div class="credential-panel" id="reg-panel">';
-	$out .=         '<form onsubmit="return validateMyForm();" class="credential-form" id="reg-form" action = "register.php" method="post">';
+	$out .=         '<form onsubmit="return (validateMyForm() && checkPwd())" class="credential-form" id="reg-form" action = "register.php" method="post">';
 	$out .=           '<h2 class="sign-in">Registration</h2>';
 	$out .=           '<label class="credential-label" >First Name</label>';
 	$out .=           '<input class="reg-credential" name="firstname" id="firstname" type="text">';
@@ -40,7 +40,7 @@ if(!isset($_SESSION['user'])){
 	$out .=           '<input class="reg-credential" name="email" id="email" type="text">';
 	$out .=           '<label class="credential-label">User Name</label>';
 	$out .=           '<input class="reg-credential" name="username" id="username" type="text">';
-	$out .=           '<label class="credential-label">Password</label>';
+	$out .=           '<label class="credential-label">Password</label><span class = "password-regex">(At least 8 characters, contains at least 1 letter and 1 number)</span>';
 	$out .=           '<input class="reg-credential" name="password" id="pass" name="password" type="password">';
 	$out .=           '<label class="credential-label">Confirm Password</label>';
 	$out .=           '<input class="reg-credential" id="confirmpassword" type="password">';
@@ -107,8 +107,6 @@ function validateMyForm()
     alert("Password and confirm password do not match.");
     return false;
   }
-
-  alert("Thank you for registering. Please login with your username and password.");
   return true;
 }
 </script>
@@ -131,5 +129,27 @@ function validate() {
 
 }
 
+
 $("#submit").bind("click", validate);
+</script>
+
+<script>
+function checkPwd() {
+	var str = document.getElementById('pass').value;
+    if (str.length < 8) {
+        alert("Password is too short");
+        return false;
+    } else if (str.search(/\d/) == -1) {
+        alert("Password must contain at least 1 number");
+        return false;
+    } else if (str.search(/[a-zA-Z]/) == -1) {
+        alert("Password must contain at least 1 letter");
+        return false;
+    }
+    else{
+    alert("Thank you for registering. Please login with your username and password.");
+    return true;
+	}
+}
+
 </script>

@@ -40,14 +40,14 @@ $out .=					'<label>Department</label><br>';
 $out .=					'<input id = "dept" class = "advanced-field" type = "text"></input>';
 $out .=					'<button id = "dept-button" class = "add-button">Add</button><br>';
 $out .=				'<div class = "advanced-back-button-wrapper">';
-$out .=					'<a class = "back-button" href = "index.php">Back</a>';
+$out .=					'<a class = "back-button" href = "index.php">Back to Search</a>';
 $out .=				'</div>';
 $out .=				'</div>';
 
 $out .=			'</div>';
 
 $out .=			'<div class="col-md-4">';
-$out .= 			'<form id = "advanced-form" action = "results.php" method = "post">';
+$out .= 			'<form onsubmit = "return checkFilter()" id = "advanced-form" action = "results.php" method = "post">';
 $out .=  				'<fieldset>';
 $out .=   					'<legend>Search Criteria</legend>';
 $out .=						  '<div class = "remove-all-wrapper">';
@@ -468,4 +468,13 @@ $(document).ready(function() {
 		$('#advanced-query').val(build);
   });
  });
+</script>
+
+<script>
+	function checkFilter(){
+		if($('.advanced-field-submit').length === 0){
+			alert("Please add at least one filter");
+			return false;
+		}
+	}
 </script>

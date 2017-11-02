@@ -243,24 +243,23 @@ $countQuery = mysqli_query($con, "select data from publications where $buildQuer
 else{
 $countQuery = mysqli_query($con, "select data from publications where $buildQuery");
 }
-
+$currentPage = $_SERVER['REQUEST_URI'];
+$currentPage = substr($currentPage, -1);
 $countAmount= mysqli_num_rows($countQuery);
 $total_records = $countAmount;
 $total_pages = ceil($total_records / $limit); 
-	for ($i=1; $i<=$total_pages; $i++) {
+	if($currentPage != "p" and $total_pages != 1 && $total_records != 0){
+		$out .= "<a href='results.php?page=".($page-1)."' class='button'>Previous</a>";
+	}
+	if($currentPage == "p" && $total_records != 0){
+		$currentPage = 1;
+	}
+	if($total_records != 0){
+		$out .= '<a class = "current" href="results.php?page='.$currentPage.'">'.$currentPage.'</a>';
+	}
 
-			if($i == $page && $i == $total_pages){
-				$out .= '<a class = "current" href="results.php?page='.$i.'">'.$i .'</a>'; 
-			}
-			else if($i == $page){
-				$out .= '<a class = "current" href="results.php?page='.$i.'">'.$i .'</a><span class = "dash">-</span>';  
-			}
-			else if($i != $page && $i != $total_pages){
-				$out .= '<a href="results.php?page='.$i.'">'.$i .'</a><span class = "dash">-</span>';  
-			}
-			elseif($i != $page && $i == $total_pages){
-				$out .= '<a href="results.php?page='.$i.'">'.$i .'</a>'; 	
-			}
+	if($currentPage != $total_pages and $total_pages != 1 && $total_records != 0){
+		$out .= "<a href='results.php?page=".($page+1)."' class='button'>Next</a>";
 	}
 $out .=			'</div>'; 
 $out .=		  '</div>';

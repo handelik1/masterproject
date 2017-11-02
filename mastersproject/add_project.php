@@ -48,7 +48,7 @@ require('nav.php');
 	$out .=				'</div>';
 
 	$out .=				'<div class="col-md-4">';
-	$out .=						'<label class = "new_project_label">Semester</label><input name = "new_semester" class = "new_project_input" type = "text" size="46" required></input><br><br>';
+	$out .=						'<label class = "new_project_label">Semester</label><br><input type="radio" name="new_semester" value="Fall" required><span class = "semester-radio"> Fall </span><input type="radio" name="new_semester" value="Spring"><span class = "semester-radio"> Spring </span><br><br>';
 	$out .=					'<label class = "new_project_label">Year</label><br><input name = "new_year" class = "new_year new_project_input" type = "text" required></input><br><br>';
 	$out .=					'<label class = "new_project_label">URL <span>(Optional)</span></label><br><input name = "new_url" class = "new_year new_project_input" type = "text"></input><br><br>';
 	$out .=					'<label class = "new_project_label">Type</label><select name = "new_type" class = "new_project_input new_type">';

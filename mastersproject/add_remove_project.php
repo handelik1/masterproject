@@ -52,11 +52,11 @@ if(isset($_POST['add_project'])){
 		$insertSupervisor = mysqli_query($con,"insert into supervisor (name) VALUES ('$supervisor')");
 	}
 
-	$insertFile = mysqli_query($con, "insert into upload (name, size, type, data) VALUES ('$fileName', '$fileSize', '$fileType', '$content')");
-
 	$insertPublication = "insert into publications (firstname, lastname, middle_initial, abstract, title, school, department, supervisor, semester, year, url, type) VALUES ('$first', '$last', '$middle', '$abstract', '$title', '$school', '$dept', '$supervisor', '$semester', '$year', '$url', '$type')";
 
 	mysqli_query($con, $insertPublication) or die('Error, query failed');
+
+	$insertFile = mysqli_query($con, "insert into upload (name, size, type, data) VALUES ('$fileName', '$fileSize', '$fileType', '$content')");
 
     mysqli_close($con); 
 
@@ -70,7 +70,6 @@ if(isset($_POST['remove_project'])){
 		$id = mysqli_fetch_assoc($titleQuery);
 		$id = $id['data'];
 		$removeQuery = mysqli_query($con, "delete from publications where data = '$id'");
-		$removeData = mysqli_query($con, "delete from upload where id = $id");
 	}
 
 	mysqli_close($con); 

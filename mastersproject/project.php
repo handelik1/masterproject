@@ -25,7 +25,7 @@ $out .=	'<div class="row">
 				<form id = "search-form" class = "search-form-results text-center" action="results.php" method="post">
 					<input class = "search-bar-results" type = "text" name = "search" required><br>
 					<input form = "search-form" class = "search-button-results" type = "submit" value = "Search">
-					<a class = "advanced-results">Advanced Search</a>
+					<a href = "advanced.php" class = "advanced-results">Advanced Search</a>
 				</form>
 					
   			</div>

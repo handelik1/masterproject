@@ -39,23 +39,44 @@ require('nav.php');
 
 	$out .=		'<div class="col-md-6">';
 	$out .=			'<div class = "edit-users-wrapper">';
+				$c = 0;
 				foreach ($usersQuery as $key => $value) {
 					$name = ucwords($value['username']); 
-	$out .=			'<form onsubmit="return sure()" action = "remove_user.php" method = "post">';
 	$out .=				'<div class = "row">';	
-	$out .=					'<div class="col-md-6">';
+	$out .=					'<div class="col-md-4">';
 	$out .= 					'<span class = "user">'.$name.'</span>';
 	$out .= 					'<input class = "user" name = "user" type = "hidden" value = "'.$name.'">';
 	$out .=					'</div>';
 
-	$out .=					'<div class="col-md-3">';
+	$out .=					'<div class="col-md-4">';
+	$out .=						'<input class = "change-pass" type = "button"  data-toggle="modal" data-target="#new-pass-modal'.$c.'" value = "Change Password">';
+	$out .=   			 	 '<div class="modal fade" id="new-pass-modal'.$c.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">';
+	$out .=       				'<div class="credential-panel" id="reg-panel">';
+	$out .=   			      	 '<form onsubmit="return (newPassFormValidate() && checkPwd())"  class="new-pass-form" id="new-pass-form'.$c.'" action = "new_password.php" method="post">';
+	$out .=          				 '<h2 class="sign-in">Change Password</h2>';
+										$name = strtolower($name);
+	$out .= 						    '<input name = "username" type = "hidden" value = "'.$name.'">';
+	$out .=           					'<label class="credential-label">Password</label><span class = "password-regex">(At least 8 characters, contains at least 1 letter and 1 number)</span>';
+	$out .=           					'<input class="reg-credential" name="new-password" id="newpass" name="password" type="password">';
+	$out .=           					'<label class="credential-label">Confirm Password</label>';
+	$out .=           					'<input class="reg-credential" id="new-confirm-password" type="password">';
+	$out .=           					'<input form = "new-pass-form'.$c.'" type="submit" id = "submit" class="change-pass-button" value="Submit" ">';
+	$out .=        			   	  '</form>';
+	$out .=       				 '</div>';
+	$out .=     		 	  '</div>';
+
 	$out .=					'</div>';
 
-	$out .=					'<div class="col-md-3">';
-	$out .= 				 	 '<input class = "remove-user-button" type = "submit" value = "Remove">';
+
+	$out .=					'<div class="col-md-4">';
+	$out .=						'<form id = "remove-form'.$c.'" onsubmit="return sure()" action = "remove_user.php" method = "post">';
+	$out .= 						'<input class = "user" name = "user" type = "hidden" value = "'.$name.'">';
+	$out .= 				 	 	'<input form = "remove-form'.$c.'" class = "remove-user-button" type = "submit" value = "Remove">';
+	$out .=						'</form>';
 	$out .=					'</div>';
+
 	$out .=				'</div>';
-$out .=				 '</form>';
+					$c++;
 					}
 	$out .=			'</div>';
 	$out .=		'</div>';
@@ -79,6 +100,41 @@ function sure(){
 	}
 	else{
 	   return false;
+	}
+}
+
+</script>
+
+<script type="text/javascript">
+function newPassFormValidate()
+{
+  var pass = document.getElementById('newpass').value;
+  var confirm = document.getElementById('new-confirm-password').value;
+
+  if(pass != confirm)
+  { 
+    alert("Password and confirm password do not match.");
+    return false;
+  }
+
+}
+</script>
+
+<script>
+function checkPwd() {
+	var str = document.getElementById('newpass').value;
+    if (str.length < 8) {
+        alert("Password is too short");
+        return false;
+    } else if (str.search(/\d/) == -1) {
+        alert("Password must contain at least 1 number");
+        return false;
+    } else if (str.search(/[a-zA-Z]/) == -1) {
+        alert("Password must contain at least 1 letter");
+        return false;
+    }
+    else{
+    return true;
 	}
 }
 
