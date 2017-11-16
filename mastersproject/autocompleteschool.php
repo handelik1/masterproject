@@ -1,5 +1,13 @@
 <?php
 
+if(session_status() == PHP_SESSION_NONE){
+session_start();
+}
+
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
     require('connect.php');
 
     $schoolQuery = mysqli_query($con, "select name from university");
@@ -11,4 +19,5 @@
     }
     echo json_encode($school_name_list);
     mysqli_close($con); 
+}
 ?>

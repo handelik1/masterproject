@@ -1,30 +1,39 @@
 <?php
+if(session_status() == PHP_SESSION_NONE){
+session_start();
+}
+
+
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
 
 require('connect.php');
 if(isset($_POST['add_project'])){
 
-	$title = mysqli_real_escape_string($con,$_POST['new_title']);
-	$first = mysqli_real_escape_string($con,$_POST['new_first_name']);
+	$title = strip_tags(mysqli_real_escape_string($con,$_POST['new_title']));
+	$first = strip_tags(mysqli_real_escape_string($con,$_POST['new_first_name']));
 	if($_POST['new_middle_name'] != null){
-		$middle = mysqli_real_escape_string($con,$_POST['new_middle_name']);
+		$middle = strip_tags(mysqli_real_escape_string($con,$_POST['new_middle_name']));
 	}
 	else{
 		$middle = '';
 	}
-	$last = mysqli_real_escape_string($con,$_POST['new_last_name']);
-	$supervisor = mysqli_real_escape_string($con,$_POST['new_supervisor']);
-	$school = mysqli_real_escape_string($con,$_POST['new_school']);
-	$dept = mysqli_real_escape_string($con,$_POST['new_dept']);
-	$semester = mysqli_real_escape_string($con,$_POST['new_semester']);
-	$year = mysqli_real_escape_string($con,$_POST['new_year']);
+	$last = strip_tags(mysqli_real_escape_string($con,$_POST['new_last_name']));
+	$supervisor = strip_tags(mysqli_real_escape_string($con,$_POST['new_supervisor']));
+	$school = strip_tags(mysqli_real_escape_string($con,$_POST['new_school']));
+	$dept = strip_tags(mysqli_real_escape_string($con,$_POST['new_dept']));
+	$semester = strip_tags(mysqli_real_escape_string($con,$_POST['new_semester']));
+	$year = strip_tags(mysqli_real_escape_string($con,$_POST['new_year']));
 	if($_POST['new_url'] != null){
-		$url = mysqli_real_escape_string($con,$_POST['new_url']);
+		$url = strip_tags(mysqli_real_escape_string($con,$_POST['new_url']));
 	}
 	else{
 		$url = '';
 	}
-	$type = mysqli_real_escape_string($con,$_POST['new_type']);
-	$abstract = mysqli_real_escape_string($con,$_POST['new_abstract']);
+	$type = strip_tags(mysqli_real_escape_string($con,$_POST['new_type']));
+	$abstract = strip_tags(mysqli_real_escape_string($con,$_POST['new_abstract']));
 
 	if(isset($_FILES['new_data'])) {
 
@@ -60,12 +69,12 @@ if(isset($_POST['add_project'])){
 
     mysqli_close($con); 
 
-    header("Location: admin.php");
+    echo "<script>window.location = 'admin.php'</script>";
 }
 if(isset($_POST['remove_project'])){
 	$list = $_POST['check_list'];
 	foreach($list as $value){
-		$publication = mysqli_real_escape_string($con, $value);
+		$publication = strip_tags(mysqli_real_escape_string($con, $value));
 		$titleQuery  = mysqli_query($con, "select data from publications where title ='$publication'");
 		$id = mysqli_fetch_assoc($titleQuery);
 		$id = $id['data'];
@@ -73,8 +82,9 @@ if(isset($_POST['remove_project'])){
 	}
 
 	mysqli_close($con); 
+    echo "<script>window.location = 'admin.php'</script>";
+}
 
-    header("Location: admin.php");
 }
 
 ?>

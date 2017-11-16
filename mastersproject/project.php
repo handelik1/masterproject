@@ -3,6 +3,11 @@ if(session_status() == PHP_SESSION_NONE){
 session_start();
 }
 
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
+
 require('connect.php');
 
 $out = '';
@@ -32,20 +37,20 @@ $out .=	'<div class="row">
 		</div>';
 
 		//Project information
-$abstract = stripcslashes(mysqli_real_escape_string($con,$_POST['abstract']));
-$title = stripslashes(mysqli_real_escape_string($con,$_POST['title']));
-$first = mysqli_real_escape_string($con,$_POST['firstname']);
+$abstract = stripcslashes(strip_tags(mysqli_real_escape_string($con,$_POST['abstract'])));
+$title = stripslashes(strip_tags(mysqli_real_escape_string($con,$_POST['title'])));
+$first = strip_tags(mysqli_real_escape_string($con,$_POST['firstname']));
 if(isset($_POST['middle_initial'])){
-	$middle = mysqli_real_escape_string($con,$_POST['middle_initial']);
+	$middle = strip_tags(mysqli_real_escape_string($con,$_POST['middle_initial']));
 }
-$last = mysqli_real_escape_string($con,$_POST['lastname']);
-$supervisor = mysqli_real_escape_string($con,$_POST['supervisor']);
-$type = stripslashes(mysqli_real_escape_string($con,$_POST['type']));
-$department = mysqli_real_escape_string($con,$_POST['department']);
-$semester = mysqli_real_escape_string($con,$_POST['semester']);
-$year = mysqli_real_escape_string($con,$_POST['year']);
-$data = mysqli_real_escape_string($con,$_POST['data']);
-$key = mysqli_real_escape_string($con,$_POST['key']);
+$last = strip_tags(mysqli_real_escape_string($con,$_POST['lastname']));
+$supervisor = strip_tags(mysqli_real_escape_string($con,$_POST['supervisor']));
+$type = stripslashes(strip_tags(mysqli_real_escape_string($con,$_POST['type'])));
+$department = strip_tags(mysqli_real_escape_string($con,$_POST['department']));
+$semester = strip_tags(mysqli_real_escape_string($con,$_POST['semester']));
+$year = strip_tags(mysqli_real_escape_string($con,$_POST['year']));
+$data = strip_tags(mysqli_real_escape_string($con,$_POST['data']));
+$key = strip_tags(mysqli_real_escape_string($con,$_POST['key']));
 $value = json_decode(htmlspecialchars_decode($_POST['value']));
 $value = (array)$value;
 
@@ -121,7 +126,7 @@ echo $out;
 
 require('citations.php');
 
-
+}
  
 
 ?>

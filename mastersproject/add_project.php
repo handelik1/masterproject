@@ -3,6 +3,10 @@ $out = '';
 if(session_status() == PHP_SESSION_NONE){
 session_start();
 }
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
 require('connect.php');
 
 
@@ -87,7 +91,7 @@ require('nav.php');
 	echo $out;
 
     require('footer.html');
-
+}
 ?>
 
 <script type="text/javascript">

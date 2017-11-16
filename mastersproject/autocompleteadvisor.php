@@ -1,4 +1,12 @@
 <?php
+if(session_status() == PHP_SESSION_NONE){
+session_start();
+}
+
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
 
     require('connect.php');
 
@@ -11,4 +19,5 @@
     }
     echo json_encode($supervisor_name_list);
     mysqli_close($con); 
+}
 ?>

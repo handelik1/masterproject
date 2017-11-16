@@ -1,5 +1,10 @@
 <?php
 
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
+
     require('connect.php');
     $data = $_GET['data']; 
 	$queryFile = mysqli_query($con,"select * from upload where id = $data");
@@ -21,6 +26,6 @@
 }
     mysqli_close($con); 
 
-
+}
 
 ?>

@@ -1,10 +1,16 @@
 <?php
-$out = '';
+
+
 if(session_status() == PHP_SESSION_NONE){
 session_start();
 }
-require('connect.php');
 
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
+require('connect.php');
+$out = '';
 
 require('header.html');
 require('nav.php');
@@ -54,5 +60,5 @@ require('nav.php');
 	echo $out;
 
     require('footer.html');
-
+}
 ?>

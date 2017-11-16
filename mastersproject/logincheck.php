@@ -2,19 +2,17 @@
 if(session_status() == PHP_SESSION_NONE){
 session_start();
 }
-?>
-<?php include('header.html'); ?>
 
-<?php include('nav.php'); ?>
+include('header.html');
 
-<body>
+include('nav.php');
 
-<?php
+
 	require("connect.php");
 	
 	
-	$username= mysqli_real_escape_string($con,$_POST['username']);
-    $password= mysqli_real_escape_string($con,$_POST['password']);
+	$username= strip_tags(mysqli_real_escape_string($con,$_POST['login_username']));
+    $password= strip_tags(mysqli_real_escape_string($con,$_POST['password']));
 	$epass= hash('sha512', $username.$password);
 	
 	$logQuery= "select * from users where username= '$username' and password= '$epass'";
@@ -27,7 +25,7 @@ session_start();
 		$_SESSION['user'] = $username;
 	
 	
-	header("Location: index.php");
+    echo "<script>window.location = 'index.php'</script>";
 
 	}
 	else {
@@ -37,8 +35,9 @@ session_start();
 	
 	
 	      mysqli_close($con); 
-?>
-	
-</body>
 
-<?php include('footer.html'); ?>
+
+include('footer.html');
+
+
+ ?>

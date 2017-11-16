@@ -1,4 +1,12 @@
 <?php  
+if(session_status() == PHP_SESSION_NONE){
+session_start();
+}
+
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
 
 function mla($key, $value){
 	$mlaName = mlaName($value['firstname'], $value['lastname'], $value['middle_initial']);
@@ -88,5 +96,5 @@ function apaName($first, $last, $middle){
 	return $apaName;
 }
 
-
+}
 ?>

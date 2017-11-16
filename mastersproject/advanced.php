@@ -1,8 +1,15 @@
 <?php
-$out = '';
+
+
 if(session_status() == PHP_SESSION_NONE){
 session_start();
 }
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
+
+$out = '';
 require('connect.php');
 
 require('header.html');
@@ -74,6 +81,7 @@ echo $out;
 
 
     require('footer.html');
+}
 
 ?>
 

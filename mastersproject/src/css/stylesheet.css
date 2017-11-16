@@ -217,6 +217,19 @@ section.global-nav form {
     font-size: .85em;
 }
 
+.available{
+    color:#2FC332;
+    font-weight: bold;
+}
+.not-available{
+    color:yellow;
+    font-weight: bold;
+}
+
+#availability{
+    display: inline-block;
+}
+
 /*******Content******/
 
 .hor-line{

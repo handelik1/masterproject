@@ -1,7 +1,12 @@
 <?php
+
 if(session_status() == PHP_SESSION_NONE){
 session_start();
 }
+if(!isset($_SESSION['user'])){
+    echo "<script>window.location = 'index.php'</script>";
+}
+else{
 
 require('connect.php');
 
@@ -52,17 +57,17 @@ $start = ($page-1) * $limit;
 
 		//Results information
 $out .=	'<div class="row">';
-$search = $_SESSION['search'];
+
 //regular search
 if(isset($_POST['search'])){
 	unset($_SESSION['$buildQuery']);
-	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['search']);
-	$search = $_SESSION['search'];
+	$_SESSION['search'] = strip_tags(mysqli_real_escape_string($con,$_POST['search']));
 }
-$buildQuery = "title like '%$search%' or abstract like '%$search%' or firstname like '%$search%' or lastname like '%$search%' or supervisor like '%$search%'";
+$buildQuery = "title like '%".$_SESSION['search']."%' or abstract like '%".$_SESSION['search']."%'or firstname like '%".$_SESSION['search']."%' or lastname like '%".$_SESSION['search']."%' or supervisor like '%".$_SESSION['search']."%'";
 //advanced search
 if(isset($_POST['advanced_search'])){
-	$_SESSION['search'] = mysqli_real_escape_string($con,$_POST['advanced_search']);
+	unset($_SESSION['$buildQuery']);
+	$_SESSION['search'] = strip_tags(mysqli_real_escape_string($con,$_POST['advanced_search']));
 	$search = $_SESSION['search'];
 	//removes unnecesarry commas
 	$search = str_replace(",,,", ',', $search);
@@ -279,6 +284,7 @@ mysqli_close($con);
 require('footer.html');
 
 echo $out;
+}
 
 
 ?>
