@@ -117,6 +117,7 @@ $publicationQuery = mysqli_query($con, "select * from publications where $buildQ
 }
 else{
 $publicationQuery = mysqli_query($con, "select * from publications where $buildQuery LIMIT $start, $limit");
+
 }
 
 $count = mysqli_num_rows($publicationQuery);

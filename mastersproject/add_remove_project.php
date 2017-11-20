@@ -34,6 +34,7 @@ if(isset($_POST['add_project'])){
 	}
 	$type = strip_tags(mysqli_real_escape_string($con,$_POST['new_type']));
 	$abstract = strip_tags(mysqli_real_escape_string($con,$_POST['new_abstract']));
+	$abstract = htmlentities($abstract, ENT_QUOTES, 'UTF-8');
 
 	if(isset($_FILES['new_data'])) {
 
@@ -51,6 +52,14 @@ if(isset($_POST['add_project'])){
 	    	$fileName = addslashes($fileName);
 		}
 	}
+
+
+	$num = rand(1,1000000);
+	$name_parts= explode(".", $fileName);
+	$newname = $name_parts[0] . $num . "." . $name_parts[1]; 
+	$fileName = $newname;
+	move_uploaded_file($tmpName, "src/pdfs/$fileName");
+
 	$supervisorQuery = "select * from supervisor where name = '$supervisor'";
 	
 	$result = mysqli_query($con, $supervisorQuery);
@@ -61,11 +70,11 @@ if(isset($_POST['add_project'])){
 		$insertSupervisor = mysqli_query($con,"insert into supervisor (name) VALUES ('$supervisor')");
 	}
 
-	$insertPublication = "insert into publications (firstname, lastname, middle_initial, abstract, title, school, department, supervisor, semester, year, url, type) VALUES ('$first', '$last', '$middle', '$abstract', '$title', '$school', '$dept', '$supervisor', '$semester', '$year', '$url', '$type')";
+	$insertPublication = "insert into publications (firstname, lastname, middle_initial, abstract, title, school, department, supervisor, semester, year, url, type, data) VALUES ('$first', '$last', '$middle', '$abstract', '$title', '$school', '$dept', '$supervisor', '$semester', '$year', '$url', '$type', '$fileName')";
 
 	mysqli_query($con, $insertPublication) or die('Error, query failed');
 
-	$insertFile = mysqli_query($con, "insert into upload (name, size, type, data) VALUES ('$fileName', '$fileSize', '$fileType', '$content')");
+	$insertFile = mysqli_query($con, "insert into upload (name, size, type) VALUES ('$fileName', '$fileSize', '$fileType')");
 
     mysqli_close($con); 
 
