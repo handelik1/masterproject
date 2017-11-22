@@ -142,6 +142,7 @@ if($count > 0){
 									<input type = "hidden"  name = "semester" value = "'.$value['semester'].'">
 									<input type = "hidden"  name = "year" value = "'.$value['year'].'">
 									<input type = "hidden"  name = "data" value = "'.$value['data'].'">
+									<input type = "hidden"  name = "url" value = "'.$value['url'].'">
 									<input type = "hidden"  name = "abstract" value = "'.$value['abstract'].'">
 										<input type = "submit" class = "result-title" value = "'.$value['title'].'" id = "result-title'.$c.'"> </input><br>'. '<span class = "person-name">By: '. $value['firstname'] . ' ' . $value['middle_initial'] . '. ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
 									</form>';
@@ -169,6 +170,7 @@ if($count > 0){
 									<input type = "hidden"  name = "semester" value = "'.$value['semester'].'">
 									<input type = "hidden"  name = "year" value = "'.$value['year'].'">
 									<input type = "hidden"  name = "data" value = "'.$value['data'].'">
+									<input type = "hidden"  name = "url" value = "'.$value['url'].'">
 									<input type = "hidden"  name = "abstract" value = "'.$value['abstract'].'">
 									<input type = "submit" class = "result-title" value = "'.$value['title'].'" id = "result-title'.$c.'"></input><br>'. '<span class = "person-name"> By: '. $value['firstname'] . ' ' . $value['lastname'] .' - </span> <span class = "person-name">Supervisor: ' . $value['supervisor'] . '</span>
 

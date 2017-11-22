@@ -52,6 +52,7 @@ $department = strip_tags(mysqli_real_escape_string($con,$_POST['department']));
 $semester = strip_tags(mysqli_real_escape_string($con,$_POST['semester']));
 $year = strip_tags(mysqli_real_escape_string($con,$_POST['year']));
 $data = strip_tags(mysqli_real_escape_string($con,$_POST['data']));
+$url = strip_tags(mysqli_real_escape_string($con,$_POST['url']));
 $key = strip_tags(mysqli_real_escape_string($con,$_POST['key']));
 $value = json_decode(htmlspecialchars_decode($_POST['value']));
 $value = (array)$value;
@@ -72,6 +73,9 @@ $out .=			'<p class = "supervisor project-label text-center">Supervisor: '.$supe
 $out .=			'<p class = "project-type project-label text-center">Project Type: '.$type.'</p><br>';
 $out .=			'<p class = "department project-label text-center">Department: '.$department.'</p><br>';
 $out .=			'<p class = "date-published project-label text-center">Date Published: '.$semester. ' ' . $year .'</p><br>';
+if(!empty($url)){
+$out .=			'<p class = "url project-label text-center">'. $url .'</p><br>';
+}
 $out .=			'<p class = "text-center"><a href="/mastersproject/src/pdfs/'.$data.'" target="_blank" class = "data project-label" download>Download PDF</a></p><br>';
 $out .=			'<div class = "cite-me" id = "cite-me'.$key.'" value = "'.$key.'" data-toggle="modal" data-target="#citationModal'.$key.'">Cite Me</div>';
 

@@ -40,13 +40,6 @@ if(isset($_POST['add_project'])){
 
 		$fileName = $_FILES['new_data']['name'];
 		$tmpName  = $_FILES['new_data']['tmp_name'];
-		$fileSize = intval($_FILES['new_data']['size']);
-		$fileType = $_FILES['new_data']['type'];
-
-		$fp = fopen($tmpName, 'r');
-		$content = fread($fp, filesize($tmpName));
-		$content = addslashes($content);
-		fclose($fp);
 
 		if(!get_magic_quotes_gpc()){
 	    	$fileName = addslashes($fileName);
@@ -74,7 +67,7 @@ if(isset($_POST['add_project'])){
 
 	mysqli_query($con, $insertPublication) or die('Error, query failed');
 
-	$insertFile = mysqli_query($con, "insert into upload (name, size, type) VALUES ('$fileName', '$fileSize', '$fileType')");
+	$insertFile = mysqli_query($con, "insert into upload (name) VALUES ('$fileName')");
 
     mysqli_close($con); 
 
