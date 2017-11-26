@@ -57,6 +57,9 @@ $key = strip_tags(mysqli_real_escape_string($con,$_POST['key']));
 $value = json_decode(htmlspecialchars_decode($_POST['value']));
 $value = (array)$value;
 
+if($_POST['title'] == ' ' || !isset($_POST['title'])){
+	echo "<script>window.location = 'index.php'</script>";
+}
 
 $out .=	'<div class="row">';
 

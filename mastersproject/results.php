@@ -58,6 +58,10 @@ $start = ($page-1) * $limit;
 		//Results information
 $out .=	'<div class="row">';
 
+if((isset($_POST['search']) && $_POST['search'] == ' ') || (isset($_POST['advanced_search']) && $_POST['advanced_search'] == ' ')){
+	echo "<script>window.location = 'index.php'</script>";
+}
+
 //regular search
 if(isset($_POST['search'])){
 	unset($_SESSION['$buildQuery']);
