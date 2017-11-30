@@ -33,7 +33,7 @@ $out .= 		'<div class="col-md-8">
 $out .=								'<li class = "hover"><a href="admin.php" class = "admin-link">Admin</a></li>';
 								}
 								if(isset($_SESSION['user'])){
-$out .=								'<li class = "hover"><a href="logout.php">Logout</a></li>';
+$out .=								'<li class = "hover"><a id = "logout" href="logout.php">Logout</a></li>';
 								}
 $out .=								'</ul>
 								</nav><form><input type="hidden"> <input type="hidden"><label style="display: block; position: absolute; top: -1000px; opacity: 0;">Search</label><input size="25" type="text"> <input value="Go" type="submit"></form>

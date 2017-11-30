@@ -1,0 +1,701 @@
+/*******Navigation******/
+
+section.global-nav {
+    float: right;
+    margin-top: 10px;
+}
+section.global-nav {
+    height: 40px;
+}
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #FFF;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    -webkit-text-size-adjust: none;
+}
+section.header-logo h1 a img {
+    display: block;
+    margin: 0px;
+    margin-top: -7px;
+    width: 257px;
+    height: 45px;
+}
+section.global-nav nav {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+section.global-nav nav ul {
+    margin: 0px;
+    padding: 0px;
+    padding-top: 0px;
+    list-style-type: none;
+    float: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+section.global-nav nav ul li {
+    display: inline;
+}
+section.global-nav nav ul li:first-child a {
+    border-left: 0px;
+    padding-left: 0px;
+}
+section.global-nav nav ul li a {
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #55504c;
+    text-decoration: none;
+    border-left: 1px solid #D8D8D8;
+}
+section.global-nav form {
+    float: right;
+    text-align: right;
+    margin: 0px;
+}
+section.global-nav form {
+    float: right;
+    text-align: right;
+    padding-top: 7px;
+}
+
+.hover{
+    cursor: pointer;
+}
+
+#logout{
+    font-weight: bolder;
+}
+
+
+/*******Login******/
+
+.login-wrapper{
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5% 0%;
+    background-color: #CE1141;
+    width:65%;
+    height: 58%;
+}
+
+.repo-title{
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-size: 4.5em;
+    font-family: "Helvetica Condensed";
+}
+
+.credential-label-login{
+    margin-right: 5px;
+    font-size: 1.5em;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.password{
+    margin-left: 2px;
+}
+
+#password{  
+    margin-left: 3px;
+}
+
+.account-button{
+    text-align: center;
+    font-size: 1.5em;
+    width: 15%;
+    height: 15%;
+    line-height: 1px;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    margin:  3.5% 5.5%;
+}
+
+/*******Register******/
+
+.credential-panel{
+    z-index: 30;
+    margin-top: 130px;
+    margin-left: 35%;
+    width: 30%;
+    height: 265px;
+    border-radius: 5px;
+}
+
+.credential-form, .new-pass-form{
+    background-color: #CE1141;
+    border-radius: 5px;
+    margin-bottom: 0px !important;
+    box-shadow: 0px 0px 5px white;
+}
+
+.credential-label{
+    margin-left:5%;
+    margin-top: 7px;
+    margin-right: 5px;
+    font-size: 1.5em;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.reg-credential{
+    margin-left: 5%;
+    height: 10%;
+    width:90%;
+    border: 1px solid black;
+}
+
+.register-button, .new-project-button, .change-pass-button{
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    margin-left: 42.5%;
+    width:75px;
+    height: 30px;
+    font-weight: bold;
+    text-shadow: none;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.register-button:hover, .register-button:focus, .register-button:onclick{
+    background-color: #CE1141 !important;
+    color: white !important;
+    border-bottom: 2px solid black !important;
+    border-right: 2px solid black !important;
+    border-top: 1px solid gray !important;
+    border-left: 1px solid gray !important;
+}
+
+.sign-in{
+    text-align: center;
+    color: white;
+    margin-bottom: 0px;
+    height: 50px;
+    line-height: 50px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.password-regex{
+    color: white;
+    font-size: .85em;
+}
+
+.available{
+    color:#2FC332;
+    font-weight: bold;
+}
+.not-available{
+    color:yellow;
+    font-weight: bold;
+}
+
+#availability{
+    display: inline-block;
+}
+
+/*******Content******/
+
+.hor-line{
+	color: black; 
+	border-style: inset; 
+	border-width: 1px;
+	margin-top: 10px;
+}
+
+.title{
+	font-size: 4.5em;
+	margin-top: 15%;
+	font-family: "Helvetica Condensed";
+}
+
+.search-form{
+	position: relative;
+	margin-top: 5%; 
+}
+
+.search-bar{
+	width:70%;
+	height: 6%;
+	border-radius: 20px;
+	padding-left: 10px;
+	border: 2px solid #4c4c4c;
+	font-size: 1.5em;
+}
+
+.search-bar:focus, .search-bar:hover{
+	-webkit-box-shadow:2px 2px 2px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:2px 2px 2px rgba(0, 0, 0, 0.5);
+	box-shadow:2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.search-button{
+	width: 15%;
+	height: 7%;
+	font-size: 1.5em;
+	background-color: #CE1141;
+	color: white;
+	text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.search-button-wrapper{
+	margin-top: 5%;
+}
+.advanced{
+	margin-right: 15%; 
+	float: right;
+	font-size: 1.3em;
+}
+
+.advanced:hover{
+	cursor: pointer;
+}
+
+/*******Results**********/
+
+.search-form-results{
+    position: relative;
+}
+
+.search-bar-results{
+    width:70%;
+    height: 5%;
+    border-radius: 20px;
+    padding-left: 10px;
+    border: 2px solid #4c4c4c;
+    font-size: 1.5em;
+}
+
+.search-button-results{
+    float: right;
+    width: 10%;
+    height: 5%;
+    font-size: 1em;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    margin-top: -36px;
+    margin-right: 2.5%;
+}
+
+.advanced-results{
+    margin-right: 2.5%; 
+    float: right;
+    font-size: 1.3em;
+}
+
+.advanced-results:hover{
+    cursor: pointer;
+}
+
+.project-form-results{
+    margin-bottom: 0px;
+}
+
+.page-wrapper{
+    text-align: center;
+}
+
+.page-wrapper .pagination a, .dash{
+    font-size: 1.3em;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.current{
+    font-weight: bold;
+}
+/*******Project Results*******/
+
+.result-title{
+    font-size: 1.5em;
+    text-decoration: none;
+    background-color: white;
+    border: none;
+    color:blue;
+    padding: 0;
+}
+
+.result-title:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.person-name{
+    font-size: 1.2em;
+}
+
+.cite-me{
+    text-align: center;
+    font-size: 2em;
+    width: 80%;
+    height: 7%;
+    line-height: 51px;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    margin-left: 10%;
+}
+
+.cite-me:hover{
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
+
+/*********Citations******/
+
+.modal-container{
+    margin-top: 10%;
+}
+
+
+/*********Project********/
+
+.abstract-header{
+    font-style: bold;
+}
+
+.abstract-wrapper{
+    height: 65%;
+    overflow-y: auto;
+}
+
+.abstract{
+    font-size: 1.3em;
+    overflow-y: auto;
+}
+
+.author-name{
+    font-size: 1.3em;
+}
+
+.project-label{
+    font-size: 1.3em !important;
+}
+
+/*************Admin**********/
+
+.admin-link{
+    font-weight: bolder;
+}
+
+.admin_button{
+    margin-top: 20%;
+    padding-top: 35%;
+    font-size: 2em;
+    height: 40%;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.admin_link_button:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/******New Project*******/
+
+.new_project_label{
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.new_first_name, .new_middle_name{
+    margin-right: 6.75px;
+}
+
+.new_project_input{
+    width: 100%;
+}
+
+.new_type{
+    margin-bottom: 3px;
+}
+
+.add_project_form{
+    margin-top: 3%;
+}
+
+.new-project-button{
+    margin-top: 10%;
+    width:100px;
+    height: 30px;
+    margin-left: 37.5%;
+}
+
+.back-button-wrapper{
+    margin-top: 10%;
+}
+
+.semester-radio{
+    font-size: 1.22em;
+    margin-right: 30px;
+}
+
+/*******Remove Project******/
+
+.remove-button-results{
+    float: right;
+    width: 5%;
+    height: 5%;
+    font-size: 1em;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    margin-top: -38px;
+    margin-right: 9%;
+}
+
+.remove-title{
+    font-size: 1.5em;
+
+}
+
+.remove-check{
+    float: right;
+}
+
+.remove-wrapper{
+    height: 50%;
+    overflow-y: auto;
+}
+
+.remove-project-button{
+    width:100px;
+    height: 30px;
+    font-weight: bold;
+    text-shadow: none;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+.remove-back-button-wrapper, .edit-back-button-wrapper{
+    position: absolute;
+    top: 400px;
+}
+/********Edit Users*********/
+
+.edit-users-wrapper{
+    height: 50%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 30px;
+}
+
+
+.remove-user-button, .change-pass{
+    background-color: white;
+    border: none;
+    color: blue;
+    float: right;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.user{
+    background-color: white;
+    border: none;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+/*****Advanced*******/
+
+.advanced-search-wrapper{
+    margin-top: 5%;
+}
+
+.advanced-field{
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.add-button{
+    width: 8%;
+    height: 3.4%;
+    font-size: 1em;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    margin-left: 2%;
+    margin-bottom: 1%;
+    padding-top: 1px;
+  
+}
+
+.remove-all{
+    width: 40%;
+    height: 9%;
+    font-size: 1em;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    padding: 5px 0px;
+
+}
+
+.advanced-submit{
+    width: 40%;
+    height: 5%;
+    font-size: 1em;
+    background-color: #CE1141;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    padding: 5px 0px;
+}
+
+.advanced-form-wrapper{
+    overflow-y: auto;
+    height: 90%;
+}
+
+.remove-all-wrapper, .submit-wrapper{
+    text-align: center;
+}
+
+legend{
+    margin-top: 15%;
+    text-align: center;
+}
+
+fieldset{
+    height: 70%;
+}
+
+.field{
+    display: inline-block;
+    margin-left: 3%;
+    margin-top: 5px;
+}
+
+.advanced-back-button-wrapper{
+    margin-top: 5%;
+}
+
+.remove-field-button{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    font-size: .9em;
+    background-color: #CE1141;
+    color: white;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 20px;
+    display: inline-block;
+    margin-left: 5%;
+    font-weight: bold;
+}
+.remove-field-button:hover{
+    cursor: pointer;
+}
+
+.field-title{
+    margin-top: 5%;
+}
