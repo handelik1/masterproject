@@ -67,6 +67,10 @@ section.global-nav form {
     cursor: pointer;
 }
 
+#logout{
+    font-weight: bolder;
+}
+
 
 /*******Login******/
 
@@ -528,7 +532,6 @@ section.global-nav form {
 
 .remove-check{
     float: right;
-    width: 
 }
 
 .remove-wrapper{
