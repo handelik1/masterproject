@@ -67,7 +67,11 @@ if(isset($_POST['search'])){
 	unset($_SESSION['$buildQuery']);
 	$_SESSION['search'] = strip_tags(mysqli_real_escape_string($con,$_POST['search']));
 }
-$buildQuery = "title like '%".$_SESSION['search']."%' or abstract like '%".$_SESSION['search']."%'or firstname like '%".$_SESSION['search']."%' or lastname like '%".$_SESSION['search']."%' or supervisor like '%".$_SESSION['search']."%'";
+
+if(isset($_POST['search'])){
+	$buildQuery = "title like '%".$_SESSION['search']."%' or abstract like '%".$_SESSION['search']."%'or firstname like '%".$_SESSION['search']."%' or lastname like '%".$_SESSION['search']."%' or supervisor like '%".$_SESSION['search']."%'";
+}
+
 //advanced search
 if(isset($_POST['advanced_search'])){
 	unset($_SESSION['$buildQuery']);

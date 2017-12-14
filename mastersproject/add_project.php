@@ -59,8 +59,7 @@ require('nav.php');
 	$out .=						'<option value = "Master\'s Project">Master\'s Project</option>';
 	$out .=						'<option value = "Thesis">Thesis</option>';
 	$out .=					'</select><br><br>';
-	$out .=					'<label class = "new_project_label">File</label>';
-	$out .= 								'<input type="hidden" name="MAX_FILE_SIZE" value="200000000">';
+	$out .=					'<label class = "new_project_label">File (Max Size 3MB)</label>';
 	$out .= 								'<input type="file" name="new_data" accept = "application/pdf" required>';
 	$out .=				'</div>';
 

@@ -16,7 +16,7 @@ if(!isset($_SESSION['user'])){
 					<div class="col-md-12">';
 	$out.= 			 '<hr class = "hor-line">';
 	$out .=				'<div class = "login-wrapper">';
-	$out .=			  		'<h1 class = "repo-title text-center">MSU Project Repo</h1><br><br>';
+	$out .=			  		'<h2 class = "repo-title text-center">MSU Project Repository</h2><br><br>';
 	$out .= 				'<form id = "login-form" action = "logincheck.php" method = "post">';
 	$out .=							'<div class = "credential-wrapper">';
 	$out .= 							'<label class = "credential-label-login">Username</label><input id = "login_username" type="text" name="login_username" size = "40" style = "width: 200px;" required><br><br>';

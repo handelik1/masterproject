@@ -40,12 +40,18 @@ if(isset($_POST['add_project'])){
 
 		$fileName = $_FILES['new_data']['name'];
 		$tmpName  = $_FILES['new_data']['tmp_name'];
+		$fileSize = $_FILES['new_data']['size'];
 
 		if(!get_magic_quotes_gpc()){
 	    	$fileName = addslashes($fileName);
 		}
-	}
 
+	}
+	if($fileSize > 3000000){
+		echo '<script>alert("File too large, try again!")</script>';
+		echo '<script>window.location = "admin.php"</script>';
+		exit();
+	}
 
 	$num = rand(1,1000000);
 	$name_parts= explode(".", $fileName);
